@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\GrupoEmpresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 class GrupoEmpresaController extends Controller
 {
     /**
@@ -12,11 +13,20 @@ class GrupoEmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //return view('index');
+        /*return view('index');
         $datos['grupoempresas']=GrupoEmpresa::paginate(7);
         return view('grupoempresa.index', $datos);
+        */
+        $texto = trim($request->get('texto'));
+        $grupoempresas = DB::table('grupo_empresas')
+        ->select('id','Nombre','NombreCorto','TipoSociedad','Direccion','Correo','Telefono','Representante')
+        ->where('Nombre','LIKE','%'.$texto.'%')
+        ->orWhere('NombreCorto','LIKE','%'.$texto.'%')
+        ->orderBy('Nombre','asc')
+        ->paginate(10);
+        return view('grupoempresa.index',compact('grupoempresas','texto'));
     }
 
     /**
@@ -38,8 +48,8 @@ class GrupoEmpresaController extends Controller
     public function store(Request $request)
     {
         $campos = [
-            'Nombre' => 'required|string|max:100',
-            'NombreCorto' => 'required|string|max:100',
+            'Nombre' => 'required|alpha|max:100|unique:grupo_empresas,Nombre',
+            'NombreCorto' => 'required|alpha|max:100|unique:grupo_empresas,NombreCorto',
             'TipoSociedad' => 'required|string|max:100',
             'Logo' => 'required|mimes:jpeg,png,jpg',
             'Correo' => 'required|email',
@@ -55,7 +65,9 @@ class GrupoEmpresaController extends Controller
 
         $mensaje = [
             'required' => 'El :attribute es requerido',
-            'Logo.required' => 'El logo de la empresa es requerido'
+            'Logo.required' => 'El logo de la empresa es requerido',
+            'Nombre.unique' => 'El nombre ingresado ya se encuentra registrado',
+            'NombreCorto.unique' => 'El nombre corto ingresado ya se encuentra registrado'
         ];
 
         $this->validate($request,$campos,$mensaje);
@@ -104,8 +116,8 @@ class GrupoEmpresaController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'Nombre' => 'required|alpha|max:100',
-            'NombreCorto' => 'required|string|max:100',
+            'Nombre' => 'required|alpha|max:100|unique:grupo_empresas,Nombre,{this->grupo_empresa->id}',
+            'NombreCorto' => 'required|alpha|max:100|unique:grupo_empresas,NombreCorto,{this->grupo_empresa->id}',
             'TipoSociedad' => 'required|string|max:100',
             'Correo' => 'required|email',
             'Telefono' => 'required|string|max:100',
@@ -119,6 +131,8 @@ class GrupoEmpresaController extends Controller
 
         $mensaje = [
             'required' => 'El :attribute es requerido',
+            'Nombre.unique' => 'El nombre ingresado ya se encuentra registrado',
+            'NombreCorto.unique' => 'El nombre corto ingresado ya se encuentra registrado'
         ];
         if($request->hasFile('Logo')){
             $campos = ['Logo' => 'required|mimes:jpeg,png,jpg'];
