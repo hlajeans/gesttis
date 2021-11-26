@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GrupoEmpresaController;
 use App\Http\Controllers\PliegoController;
 use App\Http\Controllers\ConvocatoriaController;
+use App\Http\Controllers\CardController;
 
 
 
@@ -47,3 +48,4 @@ Route::resource('convocatoria',ConvocatoriaController::class);
 Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
 
 Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
+Route::resource('card',CardController::class);
