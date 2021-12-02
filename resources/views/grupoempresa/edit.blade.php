@@ -1,6 +1,3 @@
-@extends('layouts.app')
-@section('content')
-
 <!DOCTYPE html>
 <head>
 <title> Editar Grupo Empresa | Gestion TIS </title>
@@ -17,4 +14,3 @@
 </div>
 </body>
 </html>
-@endsection

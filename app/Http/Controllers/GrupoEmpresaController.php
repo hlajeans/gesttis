@@ -89,9 +89,10 @@ class GrupoEmpresaController extends Controller
      * @param  \App\Models\GrupoEmpresa  $grupoEmpresa
      * @return \Illuminate\Http\Response
      */
-    public function show(GrupoEmpresa $grupoEmpresa)
+    public function show($id)
     {
-        //
+        $grupoe= GrupoEmpresa::find($id);
+        return view('grupoempresa.show',compact('grupoe'));
     }
 
     /**

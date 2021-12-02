@@ -1,6 +1,3 @@
-@extends('layouts.app')
-@section('content')
-
 <!DOCTYPE html>
 <head>
 <title> Registrar Grupo Empresa | Gestion TIS </title>
@@ -16,5 +13,4 @@
 
 <html>
 
-@endsection
 
