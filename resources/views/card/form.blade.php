@@ -20,6 +20,12 @@
 <label for="Descripcion" class="form-label"> Descripcion*</label>
 <input type= "text" class="form-control" name="Descripcion" id="Descripcion" value="{{isset($card->Descripcion)? $card->Descripcion:old('Descripcion')}}">
 </div>
+
+<div class="form-group">
+<label for="Archivo"> Archivos adjuntos*</label>
+<input type= "file" class="form-control" name="Archivo" id="Archivo" value="Seleccionar archivos">
+</div>
+
 <br/>
 <input type= "submit" class="btn btn-dark" value="{{$modo}} datos">
 <a href="{{url('/card')}}" class="btn btn-secondary">Regresar</a>

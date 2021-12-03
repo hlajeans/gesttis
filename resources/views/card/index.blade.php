@@ -70,7 +70,7 @@
             <div class="card-header">{{$card->Titulo}}</div>
             <div class="card-body">
               <p class="card-text">{{$card->Descripcion}}</p>
-              <a href="#" class="btn btn-outline-dark">Ver detalles</a>
+              <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
             </div>
           </div>
         </div>

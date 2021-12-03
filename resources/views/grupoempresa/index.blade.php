@@ -118,13 +118,12 @@
         <a href="{{url('/grupoempresa/'.$gp->id.'/edit')}}" class="btn btn-secondary">
         Editar
         </a>
-        
         <form action="{{url('/grupoempresa/'.$gp->id)}}" method="post">
         @csrf
         {{method_field('DELETE')}}
         <input class="btn btn-dark" type="submit" onClick="return confirm('¿Estas seguro que deseas borrar?')" value="Borrar">
         </form>
-        <a href="{{url('/grupoempresa/show')}}" class="btn btn-secondary">Ver Detalles</a>
+        <a href="{{url('/grupoempresa/'.$gp->id)}}" class="btn btn-secondary">Ver Detalles</a>
         </td>
         </tr>
         @endforeach

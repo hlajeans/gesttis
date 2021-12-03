@@ -40,12 +40,14 @@ class CardController extends Controller
         $campos = [
             'Titulo' => 'required|string|max:50|unique:cards,Titulo',
             'Descripcion' => 'required|string|max:200',
+            'Archivo'  => 'required'
 
         ];
 
         $mensaje = [
             'Titulo.required' => 'El :attribute es requerido',
-            'Descripcion.required' => 'La :attribute es requerido'
+            'Descripcion.required' => 'La :attribute es requerido',
+            'Archivo.required' => 'El :attribute es requerido'
         ];
 
         $this->validate($request,$campos,$mensaje);
@@ -62,9 +64,10 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function show(Card $card)
+    public function show($id)
     {
-        //
+        $card= Card::find($id);
+        return view('card.show',compact('card'));
     }
 
     /**
