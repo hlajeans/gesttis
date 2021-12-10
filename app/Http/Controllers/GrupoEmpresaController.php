@@ -48,8 +48,8 @@ class GrupoEmpresaController extends Controller
     public function store(Request $request)
     {
         $campos = [
-            'Nombre' => 'required|alpha|max:100|unique:grupo_empresas,Nombre',
-            'NombreCorto' => 'required|alpha|max:100|unique:grupo_empresas,NombreCorto',
+            'Nombre' => 'required|string|max:100|unique:grupo_empresas,Nombre',
+            'NombreCorto' => 'required|string|max:100|unique:grupo_empresas,NombreCorto',
             'TipoSociedad' => 'required|string|max:100',
             'Logo' => 'required|mimes:jpeg,png,jpg',
             'Correo' => 'required|email',
