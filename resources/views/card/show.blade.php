@@ -17,7 +17,7 @@
         <ul>
           <li><strong></strong>{{$card->Descripcion}}</li>
           <br/>
-            <a href="/storage/app/public/uploads/.{{$card->Archivo}}" download class="btn btn-warning">Descargar archivos adjuntos</a>
+            <a href="{{asset('storage').'/'.$card->Archivo}}" download class="btn btn-warning">Descargar archivos adjuntos</a>
           <a href="{{url('/card')}}" class="btn btn-dark">Regresar</a>
         <br/>
         </ul>
