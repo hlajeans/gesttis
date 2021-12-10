@@ -53,6 +53,9 @@ class CardController extends Controller
         $this->validate($request,$campos,$mensaje);
 
         $datoscards = request()->except('_token');
+        if($request->hasFile('Archivo')){
+            $datoscards['Archivo']= $request->file('Archivo')->store('uploads','public');
+        }
              
         Card::insert($datoscards);
         return redirect('card')->with('mensaje','Tarjeta añadida!');
