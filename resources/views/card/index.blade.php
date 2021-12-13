@@ -53,6 +53,7 @@
 
 <div class="container">
 <a href="{{url('/card/create')}}" class="btn btn-dark">+ Añadir</a>
+<a href="{{url('/card/create')}}" class="btn btn-dark"> Evaluar </a>
 <br/>
 
 
