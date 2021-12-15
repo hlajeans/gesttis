@@ -40,6 +40,7 @@ class CardController extends Controller
         $campos = [
             'Titulo' => 'required|string|max:50|unique:cards,Titulo',
             'Descripcion' => 'required|string|max:200',
+            'Link' => 'required',
             'Archivo'  => 'required'
 
         ];
@@ -47,7 +48,9 @@ class CardController extends Controller
         $mensaje = [
             'Titulo.required' => 'El :attribute es requerido',
             'Descripcion.required' => 'La :attribute es requerido',
+            'Link.required' => 'El :attribute es requerido',
             'Archivo.required' => 'El :attribute es requerido'
+
         ];
 
         $this->validate($request,$campos,$mensaje);

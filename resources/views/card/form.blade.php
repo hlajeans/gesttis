@@ -22,6 +22,11 @@
 </div>
 
 <div class="form-group">
+<label for="Link" class="form-label"> Link*</label>
+<input type= "text" class="form-control" name="Link" id="Link" value="{{isset($card->Link)? $card->Link:old('Link')}}">
+</div>
+
+<div class="form-group">
 <label for="Archivo"> Archivos adjuntos*</label>
 <input type= "file" class="form-control" name="Archivo" id="Archivo" value="Seleccionar archivos">
 </div>
