@@ -47,57 +47,104 @@
             </div>
         </div>
     </div>
-    </header>
-    
     </header>  
-
-<div class="container">
-<a href="{{url('/card/create')}}" class="btn btn-dark">+ Añadir</a>
-<a href="{{url('/card/create')}}" class="btn btn-dark"> Evaluar </a>
-<br/>
-
 
     <div class="container">
         <h2 class="text-center">Tablero de actividades</h2>
+        <div class="m-4">
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="nav-item">
+                    <a href="#porrealizar" class="nav-link active">Por realizar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#encurso" class="nav-link">En curso</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#terminadas" class="nav-link">Terminadas</a>
+                </li>
+            </ul>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                var tabList = [].slice.call(document.querySelectorAll("#myTab a"));
+                tabList.forEach(function(tab){
+                    var tabTrigger = new bootstrap.Tab(tab);
+            
+                    tab.addEventListener("click", function(event){
+                        event.preventDefault();
+                        tabTrigger.show();
+                    });
+                });
+            });
+            </script>
         @if(count($cards)<=0)
         <br/>
+        <div class="text-center"><a href="{{url('/card/create')}}" class="btn btn-dark center">+ Añadir</a><br/><br/></div>
         <h4 class="text-center">No se encontraron tarjetas en este espacio de trabajo</h4>
         @else
         <br/>
+    <div class="tab-content">
+        <div>
+            <a href="{{url('/card/create')}}" class="btn btn-dark center">+ Añadir</a>
+            <a href="{{url('/card/create')}}" class="btn btn-dark center">Evaluar</a>
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">AEA</div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">123</div>
-          </div>
-
-
+        </div>
+        <br/>
+        <div class="tab-pane fade show active" id="porrealizar">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-        @foreach($cards as $card)
+            @foreach($cards as $card)
+            @if($card->Modo == 'Por Realizar')
         <div class="col">
         <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header">{{$card->Titulo}}</div>
+            <div class="card-header">{{Str::limit($card->Titulo,20)}}</div>
             <div class="card-body">
-              <p class="card-text">{{$card->Descripcion}}</p>
+              <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
               <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
             </div>
           </div>
         </div>
+            @endif
+          @endforeach
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="encurso">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach($cards as $card)
+            @if($card->Modo == 'En Curso')
+        <div class="col">
+        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">{{Str::limit($card->Titulo,20)}}</div>
+            <div class="card-body">
+              <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
+              <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+            @endif
           @endforeach
         </div>
-          @endif
+        </div>
+
+        <div class="tab-pane fade" id="terminadas">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach($cards as $card)
+            @if($card->Modo == 'Terminado')
+        <div class="col">
+        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">{{Str::limit($card->Titulo,20)}}</div>
+            <div class="card-body">
+              <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
+              <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+            @endif
+          @endforeach
+        </div>
+        </div>
     </div>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</div>
+@endif
     </body>
         </html>

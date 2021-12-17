@@ -17,12 +17,14 @@
         <ul>
           <li><strong></strong>{{$card->Descripcion}}</li>
           <br/>
+          <h3 class="my-3">Link: </h3>
+          <li>Se adjunto el siguiente link {{$card->Link}}</li>
+          <br/>
             <a href="{{asset('storage').'/'.$card->Archivo}}" download class="btn btn-warning">Descargar archivos adjuntos</a>
           <a href="{{url('/card')}}" class="btn btn-dark">Regresar</a>
         <br/>
         </ul>
       </div>
-  
     </div>
     <br/>
   </div>

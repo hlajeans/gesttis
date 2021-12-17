@@ -19,6 +19,7 @@ class CreateCardsTable extends Migration
             $table->string('Descripcion');
             $table->string('Link');
             $table->string('Archivo');
+            $table->string('Modo');
             $table->timestamps();
         });
     }

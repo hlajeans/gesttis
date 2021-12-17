@@ -41,6 +41,7 @@ class CardController extends Controller
             'Titulo' => 'required|string|max:50|unique:cards,Titulo',
             'Descripcion' => 'required|string|max:200',
             'Link' => 'required',
+            'Modo' => 'required',
             'Archivo'  => 'required'
 
         ];
@@ -49,7 +50,8 @@ class CardController extends Controller
             'Titulo.required' => 'El :attribute es requerido',
             'Descripcion.required' => 'La :attribute es requerido',
             'Link.required' => 'El :attribute es requerido',
-            'Archivo.required' => 'El :attribute es requerido'
+            'Archivo.required' => 'El :attribute es requerido',
+            'Modo.required' => 'El :attribute es requerido'
 
         ];
 

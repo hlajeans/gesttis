@@ -31,6 +31,17 @@
 <input type= "file" class="form-control" name="Archivo" id="Archivo" value="Seleccionar archivos">
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="col-4">
+    <label for="Modo">Estado</label>
+    <select class="form-select" name="Modo" id="Modo">
+        <option>Por Realizar</option>
+        <option>En Curso</option>
+        <option>Terminado</option>
+    </select>
+</div>
+
 <br/>
 <input type= "submit" class="btn btn-dark" value="{{$modo}} datos">
 <a href="{{url('/card')}}" class="btn btn-secondary">Regresar</a>
