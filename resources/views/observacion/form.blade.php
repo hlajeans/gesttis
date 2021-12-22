@@ -22,5 +22,5 @@
 </div>
 
 <br/>
-<input type= "submit" class="btn btn-dark" value="{{$modo}} datos">
+<input type= "submit" class="btn btn-dark" value="{{$modo}} observacion">
 <a href="{{url('/card')}}" class="btn btn-secondary">Regresar</a>

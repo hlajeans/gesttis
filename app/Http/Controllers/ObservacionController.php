@@ -24,7 +24,7 @@ class ObservacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('observacion.create');
     }
 
     /**

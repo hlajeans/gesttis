@@ -5,6 +5,7 @@ use App\Http\Controllers\GrupoEmpresaController;
 use App\Http\Controllers\PliegoController;
 use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\ObservacionController;
 
 
 
@@ -49,3 +50,4 @@ Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class
 
 Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
 Route::resource('card',CardController::class);
+Route::resource('observacion',ObservacionController::class);

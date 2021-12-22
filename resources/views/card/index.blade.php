@@ -62,6 +62,9 @@
                 <li class="nav-item">
                     <a href="#terminadas" class="nav-link">Terminadas</a>
                 </li>
+                <li class="nav-item">
+                    <a href="#observacion" class="nav-link">Observaciones</a>
+                </li>
             </ul>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
             <script>
@@ -86,7 +89,7 @@
     <div class="tab-content">
         <div>
             <a href="{{url('/card/create')}}" class="btn btn-dark center">+ Añadir</a>
-            <a href="{{url('/card/create')}}" class="btn btn-dark center">Evaluar</a>
+            <a href="{{url('/observacion/create')}}" class="btn btn-dark center">Evaluar</a>
 
         </div>
         <br/>
@@ -143,6 +146,23 @@
           @endforeach
         </div>
         </div>
+        <div class="tab-pane fade show active" id="observacion">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach($cards as $card)
+                @if($card->Modo == 'Observacion')
+            <div class="col">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{Str::limit($card->Titulo,20)}}</div>
+                <div class="card-body">
+                  <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
+                  <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
+                </div>
+              </div>
+            </div>
+                @endif
+              @endforeach
+              </div>
+            </div>
     </div>
 </div>
 @endif

@@ -39,6 +39,7 @@
         <option>Por Realizar</option>
         <option>En Curso</option>
         <option>Terminado</option>
+        <option>Observacion</option>
     </select>
 </div>
 
