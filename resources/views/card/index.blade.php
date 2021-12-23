@@ -88,9 +88,7 @@
         <br/>
     <div class="tab-content">
         <div>
-            <a href="{{url('/card/create')}}" class="btn btn-dark center">+ Añadir</a>
-            <a href="{{url('/observacion/create')}}" class="btn btn-dark center">Evaluar</a>
-
+            <a href="{{url('/card/create')}}" class="btn btn-dark center">+ Añadir Tarjeta</a>
         </div>
         <br/>
         <div class="tab-pane fade show active" id="porrealizar">
@@ -146,7 +144,7 @@
           @endforeach
         </div>
         </div>
-        <div class="tab-pane fade show active" id="observacion">
+        <div class="tab-pane fade" id="observacion">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($cards as $card)
                 @if($card->Modo == 'Observacion')
