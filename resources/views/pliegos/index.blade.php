@@ -25,18 +25,19 @@
                   <use xlink:href="#bootstrap"></use>
               </svg>
           </a>
-
+         
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-black">Convocatorias</a></li>
-              <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
-              <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
-              <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
+            <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">P-Especificacion</a></li>
+            <li><a href="/convocatoria" class="nav-link px-2 text-blue">Convocatoria</a></li>
+            <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
+            <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
+            <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
           </ul>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
               <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
                   aria-label="Search">
-          </form>
+          </form> -->
 
           <div class="text-end">
               <button type="button" class="btn btn-warning">Iniciar Sesion</button>
@@ -47,6 +48,7 @@
 </header>
 <br/>
 <body>
+<h2 class="text-center p-2">Listado de Pliego de Especificaciones</h2>
 <div class="table-responsive">
 <table class="table table-bordered">
 <thead>
@@ -66,9 +68,13 @@
     </tr>
   </thead>
   <tbody>
+        <?php $i=0;
+              
+        ?>
       @foreach ($pliegos as $item)
         <tr>
-            <td>{{@$item->id}}</td>
+            <td><?php  $i++;echo $i ;?></td>
+            <!-- <td>{{@$item->id}}</td> -->
             <td>{{@$item->docente}}</td>
             <td>{{@$item->titulo}}</td>
             <td>{{@$item->materia}}</td>

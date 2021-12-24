@@ -11,36 +11,7 @@
     <title>Registro</title>
 </head>
 
-<header class="p-3 bg-custom text-white">
-            
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">P-Especificacion</a></li>
-                    <li><a href="/convocatoria" class="nav-link px-2 text-blue">Convocatoria</a></li>
-                    <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
-                    <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
-                    <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
-                </ul>
-
-                <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
-                        aria-label="Search">
-                </form> -->
-
-                <div class="text-end">
-                    <button type="button" class="btn btn-warning">Iniciar Sesion</button>
-                    <button type="button" class="btn btn-warning">Registrase</button>
-                </div>
-            </div>
-        </div>
-</header>
+ 
 
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -74,62 +45,43 @@
         <div class= "row">
             
         
-            <form action= "{{route('pliegos.store')}}" method="POST" enctype="multipart/form-data" >
-                
+            <form action= "{{ route('contrato.update', $contrato->id) }}" method="POST" enctype="multipart/form-data" >
+                @method('PATCH')
                 @csrf
 
-                <h2 class="text-center p-2">Pliegos de especificaciones</h2>
+                 class="text-center p-2">Contrato</h2>
                     <div class="col-7" style="margin: 0 auto;"> 
-                        <div class="mb-1 ">
-                            <label for="formGroupExampleInput" class="form-label">Docente</label>
-                            <input class="form-control" type="text" name="docente" id="formGroupExampleInput" class="form-control-file">
+                        
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Nombre de Grupo-Empresa</label>
+                            <input class="form-control" type="text" name="nombre" value="{{$contrato->nombre}}" id="formGroupExampleInput" class="form-control-file">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Titulo</label>
-                            <input class="form-control" type="text" name="titulo" id="formGroupExampleInput" class="form-control-file">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Materia</label>
-                            <input class="form-control" type="text" name="materia" id="formGroupExampleInput" class="form-control-file">
-                        </div>
+                       
 
                         <div class="mb-1">
-                            <label for="formGroupExampleInput" class="form-label">Fecha</label>
-                            <input class="form-control" type="date" name="fecha" id="formGroupExampleInput" class="form-control-file">
-                        </div>
-
-                        <div class="mb-1">
-                            <label for="formGroupExampleInput" class="form-label">SisMat</label>
-                            <input class="form-control" type="text" name="sismat" id="formGroupExampleInput" class="form-control-file">
+                            <label for="formGroupExampleInput" class="form-label">Representan legal</label>
+                            <input class="form-control" type="text" name="representante" value="{{$contrato->representante}}" id="formGroupExampleInput" class="form-control-file">
                         </div>
 
 
+                        
                         <div class="mb-3">
-                            <label for="inputPassword4"  class="form-label">Semestre</label>
-                                <select class="form-select" name="semestre" aria-label="Default select example">
-                                        <option selected>Seleccione el semestre</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        
-                                </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="inputPassword4"  class="form-label">Pliego de Especificacion</label>
+                            <label for="inputPassword4"  class="form-label">Subir PDF "Contrato"</label>
                             <input type="file" class="form-control" name="file" aria-label="file example" required>
-                            <div class="invalid-feedback">Pliego de Especificacion</div>
+                            <div class="invalid-feedback">Subir PDF "Contrato"</div>
                         </div>
 
                         <div class="class="col-12 d-grid gap-2"">
-                            <button class="btn btn-success" type="submit">Registrar</button>
+                            <button class="btn btn-success" type="submit">Enviar</button>
                             
                         </div>
                 </div>
             </form>
         </div>
     </div>
+
+
 
     <footer class="my-2 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2021 Company B.Tec_TIS</p>

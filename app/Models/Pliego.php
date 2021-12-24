@@ -20,7 +20,7 @@ class Pliego extends Model
     ];
     public function getPathFileAttribute(){
         if ($this->documento) {
-            if (substr($this->documentov, 0, 4) === "http")
+            if (substr($this->documento, 0, 4) === "http")
                 return $this->documento;
             return asset('Archivos').'/' . $this->documento;
         }

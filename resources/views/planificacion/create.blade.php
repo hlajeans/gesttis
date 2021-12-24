@@ -4,6 +4,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +22,11 @@
                     </svg>
                 </a>
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">P-Especificacion</a></li>
                     <li><a href="/convocatoria" class="nav-link px-2 text-blue">Convocatoria</a></li>
                     <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
+                    <li><a href="{{url('/planificacion')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
                 </ul>
@@ -59,7 +61,7 @@
         </symbol>
         <symbol id="table" viewBox="0 0 16 16">
             <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
-        </symbol>
+ 
         <symbol id="people-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
@@ -74,41 +76,35 @@
         <div class= "row">
             
         
-            <form action= "{{route('pliegos.store')}}" method="POST" enctype="multipart/form-data" >
+            <form action= "{{route('planificacion.store')}}" method="POST" enctype="multipart/form-data" >
                 
                 @csrf
 
-                <h2 class="text-center p-2">Pliegos de especificaciones</h2>
-                    <div class="col-7" style="margin: 0 auto;"> 
-                        <div class="mb-1 ">
-                            <label for="formGroupExampleInput" class="form-label">Docente</label>
-                            <input class="form-control" type="text" name="docente" id="formGroupExampleInput" class="form-control-file">
-                        </div>
-
+                <h2 class="text-center p-2">Fase de Publicaciones</h2>
+                    <div class="col-5" style="margin: 0 auto;"> 
+                        
                         <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Titulo</label>
-                            <input class="form-control" type="text" name="titulo" id="formGroupExampleInput" class="form-control-file">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Materia</label>
-                            <input class="form-control" type="text" name="materia" id="formGroupExampleInput" class="form-control-file">
+                            <label for="formGroupExampleInput" class="form-label">Nombre-Grupo-Empresa</label>
+                            <input class="form-control" type="text" name="nombre" id="formGroupExampleInput" class="form-control-file" >
                         </div>
 
                         <div class="mb-1">
-                            <label for="formGroupExampleInput" class="form-label">Fecha</label>
-                            <input class="form-control" type="date" name="fecha" id="formGroupExampleInput" class="form-control-file">
+                            <label for="formGroupExampleInput" class="form-label">Representante-Legal</label>
+                            <input  class="form-control" type="text" name="representante" id="formGroupExampleInput" class="form-control-file" >
                         </div>
 
-                        <div class="mb-1">
-                            <label for="formGroupExampleInput" class="form-label">SisMat</label>
-                            <input class="form-control" type="text" name="sismat" id="formGroupExampleInput" class="form-control-file">
+                        <!-- <div class="mb-1">
+                            <label for="formGroupExampleInput" class="form-label">Codigo</label>
+                            <input class="form-control" type="text" name="codigo" id="formGroupExampleInput" class="form-control-file">
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                            <input type="email" class="form-control" name="correo"id="exampleFormControlInput1" placeholder="name@example.com">
                         </div>
-
 
                         <div class="mb-3">
                             <label for="inputPassword4"  class="form-label">Semestre</label>
-                                <select class="form-select" name="semestre" aria-label="Default select example">
+                                <select class="form-select" name="semestre" aria-label="Default select example" >
                                         <option selected>Seleccione el semestre</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -117,19 +113,32 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="inputPassword4"  class="form-label">Pliego de Especificacion</label>
-                            <input type="file" class="form-control" name="file" aria-label="file example" required>
-                            <div class="invalid-feedback">Pliego de Especificacion</div>
+                            <label for="inputPassword4"  class="form-label">Subir PDF "Sobre A"</label>
+                            <input type="file" accept=".pdf" class="form-control" name="file" aria-label="file example" required>
+                            <div class="invalid-feedback">Subir PDF "Sobre B"</div>
                         </div>
-
+                        <div class="mb-3">
+                            <label for="inputPassword4"  class="form-label">Subir PDF "Sobre B"</label>
+                            <input type="file" accept=".pdf" class="form-control" name="fileUno" aria-label="file example" required>
+                            <div class="invalid-feedback">Subir PDF "Sobre B"</div>
+                        </div>
                         <div class="class="col-12 d-grid gap-2"">
-                            <button class="btn btn-success" type="submit">Registrar</button>
-                            
+                            <button class="btn btn-success" type="submit">Enviar</button>
+                            <a class="btn btn-primary" href="/" >Cancelar</a>
                         </div>
                 </div>
             </form>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
 
     <footer class="my-2 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2021 Company B.Tec_TIS</p>

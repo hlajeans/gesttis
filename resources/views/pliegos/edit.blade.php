@@ -22,16 +22,17 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-black">Registrar Grupo-Empresa</a></li>
-                    <li><a href="#" class="nav-link px-2 text-blue">Caledario</a></li>
+                    <li><a href="#" class="nav-link px-2 text-blue">P-Especificacion</a></li>
+                    <li><a href="#" class="nav-link px-2 text-blue">Convocatoria</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
+                    <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
                         aria-label="Search">
-                </form>
+                </form> -->
 
                 <div class="text-end">
                     <button type="button" class="btn btn-warning">Iniciar Sesion</button>
@@ -73,7 +74,7 @@
         <div class= "row">
             
         
-            <form action= "{{ route('pliego.update', $pliego->id) }}" method="POST" enctype="multipart/form-data" >
+            <form action= "{{ route('pliegos.update', $pliego->id) }}" method="POST" enctype="multipart/form-data" >
                 @method('PATCH')
                 @csrf
 

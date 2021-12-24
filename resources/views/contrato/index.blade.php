@@ -32,12 +32,7 @@
                     <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
           </ul>
-
-          <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
-                  aria-label="Search">
-          </form> -->
-
+          
           <div class="text-end">
               <button type="button" class="btn btn-warning">Iniciar Sesion</button>
               <button type="button" class="btn btn-warning">Registrase</button>
@@ -46,40 +41,38 @@
   </div>
 </header>
   <body>
-    <h2 class="text-center p-2">Listado de Convocatoria</h2>
+    <h2 class="text-center p-2">Contratos enviados por Grupo_Empresa</h2>
       <table class="table table-bordered">
       <thead>
           <tr>
             <th scope="col">#</th>
             
-            <th scope="col">Titulo</th>
+            <th scope="col">Nombre de Grupo-Empresa</th>
             
-            <th scope="col">Fecha</th>
-            <th scope="col">Codigo</th>
-            <th scope="col">Semestre</th>
+            <th scope="col">Representante legal</th>
             
             <th scope="col">Creado</th>
-            <th scope="col">Actualizado</th>
-            <th scope="col">Acciones</th>
 
+            <th scope="col">Documento</th>
+   
           </tr>
         </thead>
         <tbody>
           <?php $i=0;
               
               ?>
-            @foreach ($convocatorias as $item)
+            @foreach ($contratos as $item)
               
               <tr>
                   <td><?php  $i++;echo $i ;?></td>
-                  <!-- <td>{{@$item->id}}</td> -->
-                  <td>{{@$item->titulo}}</td>
-                  <td>{{@$item->fecha}}</td>
-                  <td>{{@$item->codigo}}</td>
-                  <td>{{@$item->semestre}}</td>
+                  
+                  <td>{{@$item->nombre}}</td>
+                  
+                  <td>{{@$item->representante}}</td>
+                  
                   <td>{{@$item->created_at}}</td>
-                  <td>{{@$item->updated_at}}</td>
-                  <td>
+                  
+                  <!-- <td>
                       
                       
                       <form action="{{ route('convocatoria.destroy',$item->id) }}" method="POST">
@@ -89,13 +82,12 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-white btn-sm"><i class="fas fa-trash-alt"></i></button>
                        </form>
-                      <!-- <a href="#" class="btn btn-white btn-sm" ><i class="fas fa-file-download"></i> </a> -->
-                      <!-- <a class="btn btn-danger" href="Archivo/{{$item->documento}}" target="blank_">Ver Documento</a> -->
-                  </td>
+                  </td> -->
+                  
                   <td>
-                    <!-- <form action= "../www.youtube.com"> <button type="submit">ok</button> </form> -->
+                    
                   <a href= "{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
-                  <!-- <p>{{@$item->PathFile}}</p> -->
+                  
                   
 
                 </td>
@@ -107,9 +99,9 @@
         </tbody>
 
       </table>
-          <div>
-            <a class="btn btn-danger" href="{{ route('convocatoria.create') }}" target="blank_">RegistrarNuevo</a>
-          </div>
+          <!-- <div>
+            <a class="btn btn-danger" href="{{ route('contrato.create') }}" target="blank_">RegistrarNuevo</a>
+          </div> -->
                 
     </body>
 </html>

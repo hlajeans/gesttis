@@ -27,6 +27,7 @@
                     <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
+          </ul>
                 </ul>
 
                 <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -74,41 +75,35 @@
         <div class= "row">
             
         
-            <form action= "{{route('pliegos.store')}}" method="POST" enctype="multipart/form-data" >
-                
+            <form action= "{{ route('planificacion.update', $planificacion->id) }}" method="POST" enctype="multipart/form-data" >
+                @method('PATCH')
                 @csrf
 
-                <h2 class="text-center p-2">Pliegos de especificaciones</h2>
+                <h2 class="text-center p-2">Planificacion</h2>
                     <div class="col-7" style="margin: 0 auto;"> 
-                        <div class="mb-1 ">
-                            <label for="formGroupExampleInput" class="form-label">Docente</label>
-                            <input class="form-control" type="text" name="docente" id="formGroupExampleInput" class="form-control-file">
-                        </div>
-
+                        
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Titulo</label>
-                            <input class="form-control" type="text" name="titulo" id="formGroupExampleInput" class="form-control-file">
+                            <input class="form-control" type="text" name="nombre" value="{{$planificacion->nombre}}" id="formGroupExampleInput" class="form-control-file">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Materia</label>
-                            <input class="form-control" type="text" name="materia" id="formGroupExampleInput" class="form-control-file">
-                        </div>
-
-                        <div class="mb-1">
+                        <!-- <div class="mb-1">
                             <label for="formGroupExampleInput" class="form-label">Fecha</label>
-                            <input class="form-control" type="date" name="fecha" id="formGroupExampleInput" class="form-control-file">
-                        </div>
+                            <input class="form-control" type="date" name="fecha" value="{{$planificacion->fecha}}"id="formGroupExampleInput" class="form-control-file">
+                        </div> -->
 
                         <div class="mb-1">
-                            <label for="formGroupExampleInput" class="form-label">SisMat</label>
-                            <input class="form-control" type="text" name="sismat" id="formGroupExampleInput" class="form-control-file">
+                            <label for="formGroupExampleInput" class="form-label">Representante</label>
+                            <input class="form-control" type="text" name="representante" value="{{$planificacion->representante}}" id="formGroupExampleInput" class="form-control-file">
                         </div>
-
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                            <input type="email" class="form-control" name="correo" value="{{$planificacion->correo}}" id="exampleFormControlInput1" placeholder="name@example.com">
+                        </div>
 
                         <div class="mb-3">
                             <label for="inputPassword4"  class="form-label">Semestre</label>
-                                <select class="form-select" name="semestre" aria-label="Default select example">
+                                <select class="form-select" name="semestre" value="{{$planificacion->semestre}}" aria-label="Default select example">
                                         <option selected>Seleccione el semestre</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -117,19 +112,27 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="inputPassword4"  class="form-label">Pliego de Especificacion</label>
+                            <label for="inputPassword4"  class="form-label">Subir PDF "Sobre A"</label>
                             <input type="file" class="form-control" name="file" aria-label="file example" required>
-                            <div class="invalid-feedback">Pliego de Especificacion</div>
+                            <div class="invalid-feedback">Subir PDF "Sobre A"</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputPassword4"  class="form-label">Subir PDF "Sobre B"</label>
+                            <input type="file" class="form-control" name="file2" aria-label="file example" required>
+                            <div class="invalid-feedback">Subir PDF "Sobre B"</div>
                         </div>
 
                         <div class="class="col-12 d-grid gap-2"">
-                            <button class="btn btn-success" type="submit">Registrar</button>
+                            <button class="btn btn-success" type="submit">Enviar</button>
                             
                         </div>
                 </div>
             </form>
         </div>
     </div>
+
+
 
     <footer class="my-2 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2021 Company B.Tec_TIS</p>

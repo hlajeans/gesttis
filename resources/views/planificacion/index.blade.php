@@ -29,14 +29,10 @@
                     <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">P-Especificacion</a></li>
                     <li><a href="/convocatoria" class="nav-link px-2 text-blue">Convocatoria</a></li>
                     <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
+                    <li><a href="{{url('/planificacion')}}" class="nav-link px-2 text-blue">fase planificacion</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
                     <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
           </ul>
-
-          <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
-                  aria-label="Search">
-          </form> -->
 
           <div class="text-end">
               <button type="button" class="btn btn-warning">Iniciar Sesion</button>
@@ -44,62 +40,72 @@
           </div>
       </div>
   </div>
+  
 </header>
   <body>
-    <h2 class="text-center p-2">Listado de Convocatoria</h2>
+    <h2 class="text-center p-2">Listado de Fase-Publicacion</h2>
       <table class="table table-bordered">
       <thead>
           <tr>
             <th scope="col">#</th>
             
-            <th scope="col">Titulo</th>
+            <th scope="col">Nombre-Grupo-Empresa</th>
+            <th scope="col">Representante-Legal</th>
+            <!-- <th scope="col">Fecha</th>-->
+            <th scope="col">Correo</th> 
             
-            <th scope="col">Fecha</th>
-            <th scope="col">Codigo</th>
             <th scope="col">Semestre</th>
             
             <th scope="col">Creado</th>
-            <th scope="col">Actualizado</th>
-            <th scope="col">Acciones</th>
+            <!-- <th scope="col">Actualizado</th> -->
+            <th scope="col">Sobre A</th>
+            <th scope="col">Sobre B</th>
+            <th scope="col">Contrato</th>
 
           </tr>
         </thead>
         <tbody>
           <?php $i=0;
-              
-              ?>
-            @foreach ($convocatorias as $item)
-              
+          
+          ?>
+            
+            @foreach ($planificaciones as $item)
               <tr>
-                  <td><?php  $i++;echo $i ;?></td>
-                  <!-- <td>{{@$item->id}}</td> -->
-                  <td>{{@$item->titulo}}</td>
-                  <td>{{@$item->fecha}}</td>
-                  <td>{{@$item->codigo}}</td>
+
+                  <td><?php  $i++;echo $i;?></td>
+                  <td>{{@$item->nombre}}</td>
+                  <td>{{@$item->representante}}</td>
+                  <td>{{@$item->correo}}</td>
                   <td>{{@$item->semestre}}</td>
                   <td>{{@$item->created_at}}</td>
-                  <td>{{@$item->updated_at}}</td>
-                  <td>
-                      
-                      
-                      <form action="{{ route('convocatoria.destroy',$item->id) }}" method="POST">
-                        <a href="{{ route('convocatoria.edit',$item->id)}}" class="btn btn-white btn-sm" ><i class="fas fa-edit"></i> </a>
-
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-white btn-sm"><i class="fas fa-trash-alt"></i></button>
-                       </form>
-                      <!-- <a href="#" class="btn btn-white btn-sm" ><i class="fas fa-file-download"></i> </a> -->
-                      <!-- <a class="btn btn-danger" href="Archivo/{{$item->documento}}" target="blank_">Ver Documento</a> -->
-                  </td>
-                  <td>
-                    <!-- <form action= "../www.youtube.com"> <button type="submit">ok</button> </form> -->
-                  <a href= "{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
-                  <!-- <p>{{@$item->PathFile}}</p> -->
+                  <!-- <td>{{@$item->updated_at}}</td> -->
                   
 
-                </td>
-              </tr>
+                    <td>
+                        <a href= "{{@$item->getPathFileAttribute()}} " class="btn btn-danger" target="_blank" title="Vizualizar PDF">Ver</a>
+               
+                    </td>
+   
+                
+                        <td>
+                            <a href= "{{@$item->getPathFileAttribute2()}} " class="btn btn-danger" target="_blank" title="Vizualizar PDF">Ver</a>
+                  
+                  </td>
+                  <td>
+
+                    <!-- //Aceptar -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1{{@$item->id}}" data-bs-whatever="@getbootstrap">Aceptar</button>
+                    @include("planificacion.aceptar",['aceptar'=>@$item->id,'correo'=>@$item->correo])
+               
+                    <!-- //Rechazar -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2{{@$item->id}}" data-bs-whatever="@getbootstrap">Rechazar</button>
+                    @include("planificacion.rechazar",['rechazar'=>@$item->id,'correo'=>@$item->correo])
+
+                  </td>
+                  <td>
+                    
+                  </td>
+            </tr>
             @endforeach
             
             
@@ -108,8 +114,8 @@
 
       </table>
           <div>
-            <a class="btn btn-danger" href="{{ route('convocatoria.create') }}" target="blank_">RegistrarNuevo</a>
+            <a class="btn btn-danger" href="{{ route('planificacion.create') }}" target="blank_">RegistrarNuevo</a>
           </div>
-                
+               
     </body>
 </html>
