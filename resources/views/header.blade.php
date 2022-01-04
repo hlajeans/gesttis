@@ -15,7 +15,7 @@
             }
         }
 
-        
+
 
     </style>
 <div class="container">
@@ -27,16 +27,13 @@
         </a>
 
         <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">P-Especificacion</a></li>
-            <li><a href="/convocatoria" class="nav-link px-2 text-blue">Convocatoria</a></li>
-            <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
-            <li><a href="{{url('sobres/show')}}" class="nav-link px-2 text-blue">Fase-Planificacion</a></li>
-            <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">Contrato</a></li>
-            <li><a href="#" class="nav-link px-2 text-blue">Calendario</a></li>
-           
-
+            <li><a href="/convocatoria" class="nav-link px-2 text-blue">CONVOCATORIA</a></li>
+            <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">PLIEGO DE ESPECIFICACIONES</a></li>
+            <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">GRUPO-EMPRESA</a></li>
+            <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
+            <li><a href="{{url('sobres/show')}}" class="nav-link px-2 text-blue">FASE DE PLANIFICACION</a></li>
         </ul>
-<!-- 
+<!--
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
             <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
                 aria-label="Search">
@@ -50,4 +47,4 @@
 </div>
 </header>
 
-</header>  
+</header>
