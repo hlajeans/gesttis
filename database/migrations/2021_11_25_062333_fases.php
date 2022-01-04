@@ -17,7 +17,7 @@ class Fases extends Migration
             $table->bigIncrements('id');
             $table->string('nombre')->nullable();
             $table->string('representante')->nullable();
-            
+
             $table->string('semestre')->nullable();
             $table->string('documento')->nullable();
             $table->string('documento2')->nullable();
@@ -32,6 +32,8 @@ class Fases extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('fases', function (Blueprint $table) {
+            $table->dropIfExists("fases");
+        });
     }
 }

@@ -33,13 +33,13 @@ Route::get('/vista', function () {
     return view('vista');
 });
 
-Route::resource('pliegos',PliegoController::class);
-Route::resource('grupoempresa',GrupoEmpresaController::class);
+Route::resource('pliegos', PliegoController::class);
+Route::resource('grupoempresa', GrupoEmpresaController::class);
 Auth::routes();
 
 //Route::get('/home',[GrupoEmpresaController::class, 'index'])->name('home');
-Route::group(['middleware' => 'auth'], function(){
-//Route::get('/', [GrupoEmpresaController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    //Route::get('/', [GrupoEmpresaController::class, 'index'])->name('home');
 
 });
 
@@ -53,15 +53,15 @@ Route::get('/', function () {
 Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
 
 Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
-Route::resource('card',CardController::class);
-Route::resource('observacion',ObservacionController::class);
+Route::resource('card', CardController::class);
+Route::resource('observacion', ObservacionController::class);
 Route::resource('sobres', App\Http\Controllers\SobreController::class);
 
 Route::resource('contrato', ContratoController::class);
 
 Route::resource('planificacion', App\Http\Controllers\PlanificacionController::class);
 
-Route::resource('convocatoria',ConvocatoriaController::class);
+Route::resource('convocatoria', ConvocatoriaController::class);
 
 Route::resource('reporte', ReporteController::class);
 
@@ -71,29 +71,29 @@ Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaControlle
 
 Route::resource('fases', App\Http\Controllers\FaseController::class);
 
-Route::post('aceptar', [ReporteController::class, 'aceptar']);
-Route::post('rechazar', [ReporteController::class, 'rechazar']);
+Route::post('aceptar', [App\Http\Controllers\ReporteController::class, 'aceptar']);
+Route::post('rechazar', [App\Http\Controllers\ReporteController::class, 'rechazar']);
 
 
-Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/register', [App\Http\Controllers\RegisterController::class, 'create'])->name('register.index');
+Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');
 
 
-Route::get('/login', [SessionsController::class, 'create'])->name('login.index');
-Route::post('/login', [SessionsController::class, 'store'])->name('login.store');
+Route::get('/login', [App\Http\Controllers\SessionsController::class, 'create'])->name('login.index');
+Route::post('/login', [App\Http\Controllers\SessionsController::class, 'store'])->name('login.store');
 
-Route::get('/logout', [SessionsController::class, 'destroy'])->name('login.destroy');
+Route::get('/logout', [App\Http\Controllers\SessionsController::class, 'destroy'])->name('login.destroy');
 
-Route::get('/pagos', [PagosController::class, 'index'])->name('pagos.index');
+Route::get('/pagos', [App\Http\Controllers\PagosController::class, 'index'])->name('pagos.index');
 
-Route::get('/pagos/create', [PagosController::class, 'create'])->name('pagos.create');
+Route::get('/pagos/create', [App\Http\Controllers\PagosController::class, 'create'])->name('pagos.create');
 
-Route::post('/pagos/create', [PagosController::class, 'store'])->name('pagos.store');
-
-
-Route::resource('pagos', PagosController::class);
+Route::post('/pagos/create', [App\Http\Controllers\PagosController::class, 'store'])->name('pagos.store');
 
 
-Route::get('/admin',[AdminController::class, 'index'])
-->middleware('auth.admin')
-->name('admin.index');
+Route::resource('pagos', App\Http\Controllers\PagosController::class);
+
+
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
+    ->middleware('auth.admin')
+    ->name('admin.index');
