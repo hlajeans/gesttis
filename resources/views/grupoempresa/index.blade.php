@@ -35,32 +35,31 @@
                     <use xlink:href="#bootstrap"></use>
                 </svg>
             </a>
-    
-            <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            @include('header')             
+            
+            <!--ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="{{asset('empresa.png')}}" width="40" alt="">
+            </a>
                 <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-black">Convocatorias</a></li>
                 <li><a href="/convocatoria/create" class="nav-link px-2 text-blue">Registrar Convocatoria</a></li>
                 <li><a href="" class="nav-link px-2 text-blue">Calendario</a></li>
                 <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
                 <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
-            </ul>
+            </ul-->
     
             <!--form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
                     aria-label="Search">
             </form-->
     
-            <div class="text-end">
+            <!--div class="text-end">
                 <button type="button" class="btn btn-warning">Iniciar Sesion</button>
                 <button type="button" class="btn btn-warning">Registrase</button>
-            </div>
+            </div-->
         </div>
     </div>
     </header>
-    
-    </header>  
-
-
-
 
 <div class="container">
 <a href="{{route('card.index')}}" class="btn btn-dark">Mi Grupo Empresa</a>

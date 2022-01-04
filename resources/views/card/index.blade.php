@@ -101,6 +101,12 @@
             <div class="card-body">
               <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
               <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
+              <a href="{{url('/card/'.$card->id.'/edit')}}" class="btn btn-secondary">Editar</a>
+              <form action="{{url('/card/'.$card->id)}}" method="post">
+                    @csrf
+                    {{method_field('DELETE')}}
+                    <input class="btn btn-dark" type="submit" onClick="return confirm('¿Estas seguro que deseas borrar?')" value="Borrar">
+                </form>
             </div>
           </div>
         </div>
@@ -119,6 +125,13 @@
             <div class="card-body">
               <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
               <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
+              <a href="{{url('/card/'.$card->id.'/edit')}}" class="btn btn-secondary">Editar</a>
+              <form action="{{url('/card/'.$card->id)}}" method="post">
+                    @csrf
+                    {{method_field('DELETE')}}
+                    <input class="btn btn-dark" type="submit" onClick="return confirm('¿Estas seguro que deseas borrar?')" value="Borrar">
+                </form>
+
             </div>
           </div>
         </div>
@@ -137,6 +150,13 @@
             <div class="card-body">
               <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
               <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
+              <a href="{{url('/card/'.$card->id.'/edit')}}" class="btn btn-secondary">Editar</a>
+
+              <form action="{{url('/card/'.$card->id)}}" method="post">
+                    @csrf
+                    {{method_field('DELETE')}}
+                    <input class="btn btn-dark" type="submit" onClick="return confirm('¿Estas seguro que deseas borrar?')" value="Borrar">
+                </form>
             </div>
           </div>
         </div>
@@ -154,6 +174,13 @@
                 <div class="card-body">
                   <p class="card-text">{{Str::limit($card->Descripcion,25)}}</p>
                   <a href="{{url('/card/'.$card->id)}}" class="btn btn-warning">Ver detalles</a>
+                  <a href="{{url('/card/'.$card->id.'/edit')}}" class="btn btn-secondary">Editar</a>
+                
+                  <form action="{{url('/card/'.$card->id)}}" method="post">
+                    @csrf
+                    {{method_field('DELETE')}}
+                    <input class="btn btn-dark" type="submit" onClick="return confirm('¿Estas seguro que deseas borrar?')" value="Borrar">
+                </form>
                 </div>
               </div>
             </div>
