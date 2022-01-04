@@ -21,7 +21,7 @@ class CreatePlanificacionesTable extends Migration
             $table->string('semestre')->nullable();
             $table->string('documento')->nullable();
             $table->string('documento2')->nullable();
-            $table->timestamps();            
+            $table->timestamps();
         });
     }
 
@@ -32,6 +32,6 @@ class CreatePlanificacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planificaciones');
+        Schema::dropIfExists('planificacions');
     }
 }

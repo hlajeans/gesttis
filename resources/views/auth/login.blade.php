@@ -8,7 +8,7 @@
         <div class="row">
             <div class="card login-box">
                 <h1 class="text-5xl text-center pt-24"> Iniciar Sesion</h1>
-                <form class="mt-4" method="POST" action="">
+                <form class="mt-4" method="POST" action="{{url('login')}}">
                     @csrf
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>

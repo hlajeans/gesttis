@@ -51,7 +51,7 @@
             </ul>
             <div class="text-end">
                 @if(auth()->check())
-                <a href="{{route('login.destroy')}}">Cerrar Sesion</a>
+                <a href="{{route('login.destroy')}}" class="btn btn-danger">Cerrar Sesion</a>
                 @else
                 <a href="{{url('login')}}" type="button" class="btn btn-warning">Iniciar Sesion</a>
                 @endif
