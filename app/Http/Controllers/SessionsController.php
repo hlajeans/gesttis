@@ -11,16 +11,25 @@ class SessionsController extends Controller
     {
         return view('auth.login');
     }
-    public function store()
+    public function store(Request $request)
     {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
-        if (auth()->attempt(request(['email', 'password'])) == false) {
-            return back()->withErrors([
-                'message' => 'Correo o contraseña incorrecto.',
+        $credentials = $request->except(['_token']);
 
-            ]);
+        $user = User::where('email', $request->email)->first();
+
+        if (auth()->attempt(['email' => 'admin@admin.com', 'password' => '12345678'])) {
+
+            return redirect()->to('/');
+        } else {
+            dd('');
+            session()->flash('message', 'Invalid credentials');
+            return redirect()->back();
         }
-        return redirect()->to('/');
     }
 
     public function destroy()

@@ -29,12 +29,13 @@ use Illuminate\Support\Facades\Auth;
 });
 */
 
+Auth::routes();
 Route::get('/vista', function () {
     return view('vista');
 });
 
-Route::resource('pliegos', PliegoController::class);
-Route::resource('grupoempresa', GrupoEmpresaController::class);
+Route::resource('pliegos', App\Http\Controllers\PliegoController::class);
+Route::resource('grupoempresa', App\Http\Controllers\GrupoEmpresaController::class);
 Auth::routes();
 
 //Route::get('/home',[GrupoEmpresaController::class, 'index'])->name('home');
@@ -53,24 +54,24 @@ Route::get('/', function () {
 Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
 
 Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
-Route::resource('card', CardController::class);
-Route::resource('observacion', ObservacionController::class);
+Route::resource('card', App\Http\Controllers\CardController::class);
+Route::resource('observacion', App\Http\Controllers\ObservacionController::class);
 Route::resource('sobres', App\Http\Controllers\SobreController::class);
 
-Route::resource('contrato', ContratoController::class);
+Route::resource('contrato', App\Http\Controllers\ContratoController::class);
 
 Route::resource('planificacion', App\Http\Controllers\PlanificacionController::class);
 
-Route::resource('convocatoria', ConvocatoriaController::class);
+Route::resource('convocatoria', App\Http\Controllers\ConvocatoriaController::class);
 
-Route::resource('reporte', ReporteController::class);
+Route::resource('reporte', App\Http\Controllers\ReporteController::class);
 
 Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
 
 Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
 
 Route::resource('fases', App\Http\Controllers\FaseController::class);
-
+/*
 Route::post('aceptar', [App\Http\Controllers\ReporteController::class, 'aceptar']);
 Route::post('rechazar', [App\Http\Controllers\ReporteController::class, 'rechazar']);
 
@@ -83,7 +84,8 @@ Route::get('/login', [App\Http\Controllers\SessionsController::class, 'create'])
 Route::post('/login', [App\Http\Controllers\SessionsController::class, 'store'])->name('login.store');
 
 Route::get('/logout', [App\Http\Controllers\SessionsController::class, 'destroy'])->name('login.destroy');
-
+*/
+/*
 Route::get('/pagos', [App\Http\Controllers\PagosController::class, 'index'])->name('pagos.index');
 
 Route::get('/pagos/create', [App\Http\Controllers\PagosController::class, 'create'])->name('pagos.create');
@@ -92,7 +94,7 @@ Route::post('/pagos/create', [App\Http\Controllers\PagosController::class, 'stor
 
 
 Route::resource('pagos', App\Http\Controllers\PagosController::class);
-
+*/
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
     ->middleware('auth.admin')

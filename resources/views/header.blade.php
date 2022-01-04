@@ -36,7 +36,10 @@
 
             <div class="text-end">
                 @if(auth()->check())
-                <a href="{{route('login.destroy')}}" class="btn btn-danger">Cerrar Sesion</a>
+                <form action="{{ url('logout') }}" method="POST">
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger" type="submit">Salir</button>
+                </form>
                 @else
                 <a href="{{url('login')}}" type="button" class="btn btn-warning">Iniciar Sesion</a>
                 @endif
