@@ -73,3 +73,27 @@ Route::resource('fases', App\Http\Controllers\FaseController::class);
 
 Route::post('aceptar', [ReporteController::class, 'aceptar']);
 Route::post('rechazar', [ReporteController::class, 'rechazar']);
+
+
+Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+
+Route::get('/login', [SessionsController::class, 'create'])->name('login.index');
+Route::post('/login', [SessionsController::class, 'store'])->name('login.store');
+
+Route::get('/logout', [SessionsController::class, 'destroy'])->name('login.destroy');
+
+Route::get('/pagos', [PagosController::class, 'index'])->name('pagos.index');
+
+Route::get('/pagos/create', [PagosController::class, 'create'])->name('pagos.create');
+
+Route::post('/pagos/create', [PagosController::class, 'store'])->name('pagos.store');
+
+
+Route::resource('pagos', PagosController::class);
+
+
+Route::get('/admin',[AdminController::class, 'index'])
+->middleware('auth.admin')
+->name('admin.index');
