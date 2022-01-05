@@ -18,8 +18,8 @@ class Rol extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string("rol")->default("");
         });
-        User::create(['name' => 'admin', 'codigo' => '202200066', 'email' => 'admin@admin.com', 'password' => Hash::make('12345678'), 'grupo' => 'admin', 'rol' => 1]);
-        User::create(['name' => 'Patricia', 'codigo' => '202200067', 'email' => 'patricia@umss.edu.bo', 'password' => Hash::make('12345678'), 'grupo' => 'docente', 'rol' => 4]);
+        User::create(['name' => 'admin', 'codigo' => '202200066', 'email' => 'admin@admin.com', 'password' => '12345678', 'grupo' => 'admin', 'rol' => 1]);
+        User::create(['name' => 'Patricia', 'codigo' => '202200067', 'email' => 'patricia@umss.edu.bo', 'password' => '12345678', 'grupo' => 'docente', 'rol' => 4]);
     }
 
     /**

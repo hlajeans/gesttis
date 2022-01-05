@@ -36,7 +36,7 @@ Route::get('/vista', function () {
 
 Route::resource('pliegos', App\Http\Controllers\PliegoController::class);
 Route::resource('grupoempresa', App\Http\Controllers\GrupoEmpresaController::class);
-Auth::routes();
+
 
 //Route::get('/home',[GrupoEmpresaController::class, 'index'])->name('home');
 Route::group(['middleware' => 'auth'], function () {
