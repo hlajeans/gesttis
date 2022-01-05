@@ -29,13 +29,13 @@
                 
                 <!-- Example single danger button -->
                 <div class="btn-group">
-                <button type="button" class="btn btn-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-white dropdown-toggle nav-link px-2 text-blue" data-bs-toggle="dropdown" aria-expanded="false">
                 FASE DE PLANIFICACION
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="{{url('sobres/show')}}" class="nav-link px-2 text-blue">Sobre A y B</a></li>
-                    <li><a class="dropdown-item" href="#">PLAN DE PAGOS</a></li>
-                    <li><a class="dropdown-item" href="#">PLAN DE SPRINT</a></li>
+                    <li><a href="{{url('sobres/show')}}" class="nav-link px-2 text-blue">DOCUMENTO SOBRE A y B</a></li>
+                    <li><a class="dropdown-item nav-link px-2 text-blue " href="#">PLAN DE PAGOS</a></li>
+                    <li><a class="dropdown-item nav-link px-2 text-blue " href="#">PLAN DE SPRINT</a></li>
                     
                 </ul>
                 </div>
