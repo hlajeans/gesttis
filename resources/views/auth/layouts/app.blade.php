@@ -34,37 +34,8 @@
     </style>
 </head>
 
-<header class="p-3 bg-custom text-white">
 
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img src="{{asset('empresa.png')}}" width="40" alt="">
-            </a>
-
-            <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/convocatoria" class="nav-link px-2 text-blue">CONVOCATORIA</a></li>
-                <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">PLIEGO DE ESPECIFICACIONES</a></li>
-                <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">GRUPO-EMPRESA</a></li>
-                <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
-                <li><a href="{{url('sobres/show')}}" class="nav-link px-2 text-blue">FASE DE PLANIFICACION</a></li>
-            </ul>
-            <div class="text-end">
-                @if(auth()->check())
-                <form action="{{ url('logout') }}" method="POST" style="display: inline;">
-                    {{ csrf_field() }}
-                    <button class="btn btn-danger" type="submit">Salir</button>
-                </form>
-                <!-- <a href="{{route('logout')}}" class="btn btn-danger">Cerrar Sesion</a> -->
-                @else
-                <a href="{{url('login')}}" type="button" class="btn btn-warning">Iniciar Sesion</a>
-                @endif
-                <a href="{{url('register')}}" type="button" class="btn btn-warning">Registrase</a>
-            </div>
-        </div>
-    </div>
-</header>
-
+@include('header')
 <body class="bg-gray-100 text-gray-800">
     <nav class="flex py-5 bg-indigo-500 text-white">
 

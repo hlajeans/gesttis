@@ -34,43 +34,53 @@ Route::get('/vista', function () {
     return view('vista');
 });
 
-Route::resource('pliegos', App\Http\Controllers\PliegoController::class);
-Route::resource('grupoempresa', App\Http\Controllers\GrupoEmpresaController::class);
+
 
 
 //Route::get('/home',[GrupoEmpresaController::class, 'index'])->name('home');
 Route::group(['middleware' => 'auth'], function () {
     //Route::get('/', [GrupoEmpresaController::class, 'index'])->name('home');
+    Route::get('/home', function () {
+        return view('vistaPrincipal');
+    });
 
+    Route::resource('pliegos', App\Http\Controllers\PliegoController::class);
+
+    Route::resource('grupoempresa', App\Http\Controllers\GrupoEmpresaController::class);
+
+    Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
+
+    Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
+    
+    Route::resource('card', App\Http\Controllers\CardController::class);
+    
+    Route::resource('observacion', App\Http\Controllers\ObservacionController::class);
+    
+    Route::resource('sobres', App\Http\Controllers\SobreController::class);
+
+    Route::resource('contrato', App\Http\Controllers\ContratoController::class);
+
+    Route::resource('planificacion', App\Http\Controllers\PlanificacionController::class);
+
+    Route::resource('convocatoria', App\Http\Controllers\ConvocatoriaController::class);
+
+    Route::resource('reporte', App\Http\Controllers\ReporteController::class);
+
+    Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
+
+    Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
+
+    Route::resource('fases', App\Http\Controllers\FaseController::class);
 });
 
 
 Route::get('/', function () {
-    return view('vistaPrincipal');
+    return view('auth.login');
 });
 
 
 
-Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
 
-Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
-Route::resource('card', App\Http\Controllers\CardController::class);
-Route::resource('observacion', App\Http\Controllers\ObservacionController::class);
-Route::resource('sobres', App\Http\Controllers\SobreController::class);
-
-Route::resource('contrato', App\Http\Controllers\ContratoController::class);
-
-Route::resource('planificacion', App\Http\Controllers\PlanificacionController::class);
-
-Route::resource('convocatoria', App\Http\Controllers\ConvocatoriaController::class);
-
-Route::resource('reporte', App\Http\Controllers\ReporteController::class);
-
-Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
-
-Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
-
-Route::resource('fases', App\Http\Controllers\FaseController::class);
 /*
 Route::post('aceptar', [App\Http\Controllers\ReporteController::class, 'aceptar']);
 Route::post('rechazar', [App\Http\Controllers\ReporteController::class, 'rechazar']);
