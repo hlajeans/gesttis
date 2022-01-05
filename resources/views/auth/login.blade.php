@@ -9,7 +9,7 @@
             <div class="card login-box">
             <div class="text-center">
             <a href="/home" class="align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img src="{{asset('empresa.png')}}" width="100" alt="">
+                <img src="{{asset('empresa.png')}}" width="150" alt="">
             </a>
             </div>
                 <h1 class="text-5xl text-center pt-24"> Iniciar Sesion</h1>
