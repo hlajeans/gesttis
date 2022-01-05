@@ -51,7 +51,7 @@
             </ul>
             <div class="text-end">
                 @if(auth()->check())
-                <form action="{{ url('logout') }}" method="POST">
+                <form action="{{ url('logout') }}" method="POST" style="display: inline;">
                     {{ csrf_field() }}
                     <button class="btn btn-danger" type="submit">Salir</button>
                 </form>

@@ -104,7 +104,7 @@ class RegisterController extends Controller
             'codigo' => $data['codigo'],
             'grupo' => $data['grupo'],
             'rol' => $data['rol'],
-            'password' => Hash::make($data['password']),
+            'password' =>$data['password']
         ]);
     }
 }

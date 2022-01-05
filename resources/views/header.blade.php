@@ -50,12 +50,12 @@
 
             <div class="text-end">
                 @if(auth()->check())
-                <form action="{{ url('logout') }}" method="POST">
+                <form action="{{ url('logout') }}" method="POST" style="display: inline;">
                     {{ csrf_field() }}
                     <button class="btn btn-danger" type="submit">Salir</button>
                 </form>
                 @else
-                <a href="{{url('login')}}" type="button" class="btn btn-warning">Iniciar Sesion</a>
+                <a href="{{url('login')}}" type="button" class="btn btn-warning" >Iniciar Sesion</a>
                 @endif
                 <a href="{{url('register')}}" type="button" class="btn btn-warning">Registrase</a>
             </div>
