@@ -74,7 +74,7 @@ class PliegoController extends Controller
     public function edit($id)
     {
         $pliego=Pliego::find($id);
-        return view('pliegos.edit',compact('pliegos'));
+        return view('pliegos.edit',compact('pliego'));
     }
 
     /**
