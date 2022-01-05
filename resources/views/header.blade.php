@@ -26,7 +26,21 @@
                 <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">PLIEGO DE ESPECIFICACIONES</a></li>
                 <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">GRUPO-EMPRESA</a></li>
                 <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
-                <li><a href="{{url('sobres/show')}}" class="nav-link px-2 text-blue">FASE DE PLANIFICACION</a></li>
+                
+                <!-- Example single danger button -->
+                <div class="btn-group">
+                <button type="button" class="btn btn-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                FASE DE PLANIFICACION
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="{{url('sobres/show')}}" class="nav-link px-2 text-blue">Sobre A y B</a></li>
+                    <li><a class="dropdown-item" href="#">PLAN DE PAGOS</a></li>
+                    <li><a class="dropdown-item" href="#">PLAN DE SPRINT</a></li>
+                    
+                </ul>
+                </div>
+                
+                
             </ul>
             <!--
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
