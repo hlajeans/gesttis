@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', function () {
         return view('vistaPrincipal');
     });
+    Route::resource('pagos', App\Http\Controllers\PliegoController::class);
 
     Route::resource('pliegos', App\Http\Controllers\PliegoController::class);
 

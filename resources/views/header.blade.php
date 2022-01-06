@@ -35,7 +35,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a href="{{url('sobres/show')}}" class="dropdown-item nav-link px-2 text-blue">DOCUMENTO SOBRE A y B</a></li>
-                        <li><a class="dropdown-item nav-link px-2 text-blue " href="#">PLAN DE PAGOS</a></li>
+                        <li><a class="dropdown-item nav-link px-2 text-blue " href="{{url('pagos/create')}}">PLAN DE PAGOS</a></li>
                         <li><a class="dropdown-item nav-link px-2 text-blue " href="#">PLAN DE SPRINT</a></li>
 
                     </ul>
