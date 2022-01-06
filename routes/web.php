@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::resource('pagos', App\Http\Controllers\PagosController::class);
 
-    // Route::resource('sprint', App\Http\Controllers\PliegoController::class);
+    Route::resource('sprints', App\Http\Controllers\SprintsController::class);
 
     Route::resource('pliegos', App\Http\Controllers\PliegoController::class);
 
