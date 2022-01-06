@@ -11,11 +11,18 @@ class PagosController extends Controller
         return view ('pagos');
     }*/
     public function index(){
+        
+        
         $pagos=Pago::all();
+        
         return view('pagos.index', compact('pagos')) ;
+        
     }
     public function create(){
         return view('pagos.create');
+    }
+    public function show($id){
+        dd ('hola');
     }
     public function store(Request $request){
         $pago =new Pago();

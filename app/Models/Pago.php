@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pago extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $fillable = [
 
         'nombreGrupo',
-       'numeroIteracion',
+        'numeroIteracion',
         'totalPagar',
-       'porcentajeIteracion',
-      'montoPagar',
+        'porcentajeIteracion',
+        'montoPagar',
 
-    ] ;
+    ];
 }
