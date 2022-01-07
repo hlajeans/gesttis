@@ -10,10 +10,11 @@
         <div class="row">
             <h2 class="text-center p-2">LISTA DE PLAN DE PAGOS</h2>
             <div>
+                @if(Auth::user()->rol==1 | Auth::user()->rol==2)
                 <div class="float-rid">
                     <a class="btn btn-success" href="{{ route('pagos.create') }}">Registrar</a>
                 </div>
-
+                @endif
                 <table class="table table-bordered">
                     <thead>
                         <tr class="bg-blue-500 text-black">
@@ -46,7 +47,7 @@
                             <td class="p-3 text-center"> {{$row->created_at}}</td>
                             <td class="p-3 text-center"> {{$row->updated_at}}</td>
                             <td>
-
+                                @if(Auth::user()->rol==1 | Auth::user()->rol==2)
                                 <form action="{{route('pagos.destroy',$row->id)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -56,7 +57,7 @@
                                         </button>
                                     </div>
                                 </form>
-
+                                @endif
                                 <div>
                                     <a href="{{route('pagos.edit', $row->id)}}" class="btn text-white btn-warning">
                                         <i class="fa fa-pencil"></i></a>

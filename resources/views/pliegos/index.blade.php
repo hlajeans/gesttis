@@ -59,6 +59,7 @@
                 <td>{{@$item->created_at}}</td>
                 <td>{{@$item->updated_at}}</td>
                 <td>
+                  @if(Auth::user()->rol==1 | Auth::user()->rol==4)
                   <form action="{{ route('pliegos.destroy',$item->id) }}" method="POST">
                     <a href="{{ route('pliegos.edit',$item->id)}}" class="btn btn-white btn-sm"><i class="fas fa-edit"></i> </a>
 
@@ -66,6 +67,7 @@
                     @method('DELETE')
                     <button type="submit" class="btn btn-white btn-sm"><i class="fas fa-trash-alt"></i></button>
                   </form>
+                  @endif
                 </td>
                 <td>
                   <a href="{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
@@ -78,9 +80,11 @@
 
           </table>
         </div>
+        @if(Auth::user()->rol==1 | Auth::user()->rol==4)
           <div>
            <a class="btn btn-danger" href="{{ route('pliegos.create') }}">RegistrarNuevo</a>
           </div>
+          @endif
       </div>
     </div>
   </div>

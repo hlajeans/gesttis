@@ -10,9 +10,12 @@
         <div class="row">
             <h2 class="text-center p-2">LISTA DE PLAN DE SPRINTS</h2>
             <div>
+                @if(Auth::user()->rol==1 | Auth::user()->rol==2)
                 <div class="float-rid">
                     <a class="btn btn-success" href="{{ route('sprints.create') }}">Registrar</a>
                 </div>
+                @endif
+
                 <table class="table table-bordered">
                     <thead>
 
@@ -47,7 +50,7 @@
                             <td class="p-3 text-center"> {{$row->created_at}}</td>
                             <td class="p-3 text-center"> {{$row->updated_at}}</td>
                             <td>
-
+@if(Auth::user()->rol==1 | Auth::user()->rol==2)
                                 <form action="{{route('sprints.destroy',$row->id)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -55,6 +58,7 @@
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
+                                @endif
                                 <div>
                                     <a href="{{route('sprints.edit', $row->id)}}" class="btn text-white btn-warning">
                                         <i class="fa fa-pencil"></i></a>
