@@ -4,7 +4,7 @@
 </head>
 <body>
 <div class="container">
-<form action="{{url('/card/'.$gp->id)}}" method="post" enctype="multipart/form-data">
+<form action="{{url('/card/'.$card->id)}}" method="post" enctype="multipart/form-data">
 @csrf
 {{method_field('PATCH')}}
 @include('card.form',['modo'=>'Editar'])

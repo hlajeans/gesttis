@@ -84,9 +84,10 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function edit(Card $card)
+    public function edit($id)
     {
-        //
+        $card = Card::findOrFail($id);
+        return view('card.edit',compact('card'));
     }
 
     /**
@@ -96,9 +97,30 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Card $card)
+    public function update(Request $request,$id)
     {
-        //
+        $campos = [
+            
+            'Titulo' => 'required|string|max:50',
+            'Descripcion' => 'required|string|max:200',
+            'Link' => 'required',
+            'Modo' => 'required',
+            'Archivo'  => 'required'
+        ];
+
+        $mensaje = [
+            'required' => 'El :attribute es requerido'
+            //'Nombre.unique' => 'El nombre ingresado ya se encuentra registrado',
+            //'NombreCorto.unique' => 'El nombre corto ingresado ya se encuentra registrado'
+        ];
+        $this->validate($request,$campos,$mensaje);
+
+        $datosCard= request()->except(['_token','_method']);
+
+        Card::where('id' ,'=', $id ) -> update($datosCard);
+        $card = Card::findOrFail($id);
+        //return view('grupoempresa.edit',compact('gp'));
+        return redirect('card')->with('mensaje','Tarjeta editada!');
     }
 
     /**
@@ -107,8 +129,10 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Card $card)
+    public function destroy($id)
     {
-        //
+        $card=Card::findOrFail($id);
+            Card::destroy($id);
+        return redirect('card')->with('mensaje','Tarjeta eliminada!');
     }
 }
