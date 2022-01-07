@@ -23,25 +23,46 @@
             </a>
 
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==3 | Auth::user()->rol==4)
                 <li><a href="/convocatoria" class="nav-link px-2 text-blue">CONVOCATORIA</a></li>
-                <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">PLIEGO DE ESPECIFICACIONES</a></li>
-                <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">GRUPO-EMPRESA</a></li>
-                <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
+                @endif
 
+                @if(Auth::user()->rol==1)
+                <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">PLIEGO DE ESPECIFICACIONES</a></li>
+                @endif
+
+                @if(Auth::user()->rol==1)
+                <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">GRUPO-EMPRESA</a></li>
+                @endif
+
+                @if(Auth::user()->rol==1)
+                <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
+                @endif
+               
+                @if(Auth::user()->rol==1)
                 <!-- Example single danger button -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-white dropdown-toggle nav-link px-2 text-blue" data-bs-toggle="dropdown" aria-expanded="false">
                         FASE DE PLANIFICACION
                     </button>
                     <ul class="dropdown-menu">
+                        @if(Auth::user()->rol==1)
                         <li><a href="{{url('sobres/show')}}" class="dropdown-item nav-link px-2 text-blue">DOCUMENTO SOBRE A y B</a></li>
+                        @endif
+
+                        @if(Auth::user()->rol==1)
                         <li><a class="dropdown-item nav-link px-2 text-blue " href="{{url('pagos')}}">PLAN DE PAGOS</a></li>
+                        @endif
+
+                        @if(Auth::user()->rol==1)
                         <li><a class="dropdown-item nav-link px-2 text-blue " href="{{url('sprints')}}">PLAN DE SPRINT</a></li>
+                        @endif
 
                     </ul>
                 </div>
-
-
+                @endif
+               
+                
             </ul>
             @endif
             <div class="text-end" style="flex: auto;">
