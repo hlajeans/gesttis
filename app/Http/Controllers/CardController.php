@@ -120,7 +120,7 @@ class CardController extends Controller
         Card::where('id' ,'=', $id ) -> update($datosCard);
         $card = Card::findOrFail($id);
         //return view('grupoempresa.edit',compact('gp'));
-        return redirect('card')->with('mensaje','Tarjeta editada!');
+        return redirect('card')->with('mensaje','Tarjeta editada correctamente!');
     }
 
     /**
@@ -133,6 +133,6 @@ class CardController extends Controller
     {
         $card=Card::findOrFail($id);
             Card::destroy($id);
-        return redirect('card')->with('mensaje','Tarjeta eliminada!');
+        return redirect('card')->with('mensaje','Tarjeta eliminada correctamente!');
     }
 }
