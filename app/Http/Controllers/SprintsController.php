@@ -3,24 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sprint;
 
 class SprintsController extends Controller
 {
     public function index(){
-        $pagos=Sprint::all();
+
+        $sprints = Sprint::all();
+
         return view('sprints.index', compact('sprints')) ;
     }
+
     public function create(){
+
         return view('sprints.create');
+        
     }
+
+    public function show($id){
+        dd ('hola');
+    }
+
     public function store(Request $request){
         $sprint =new Sprint();
         $sprint->nombreGrupo = $request->nombreGrupo;
         $sprint->numeroIteracion = $request->numeroIteracion;
         $sprint->inicioIteracion = $request->inicioIteracion;
         $sprint->finIteracion = $request->finIteracion;
-        $pago->nota = $request->nota;
-        $pago->save();
+        $sprint->nota = $request->nota;
+        $sprint->save();
         return redirect()->route('sprints.index');
     }
 
@@ -30,7 +41,7 @@ class SprintsController extends Controller
     }
 
     public function update(Request $request, $id){
-        $sprint = sprint::find($id);
+        $sprint = Sprint::find($id);
         $sprint->update($request->all());
         return redirect()->route('sprints.index');
 

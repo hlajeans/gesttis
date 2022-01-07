@@ -1,6 +1,7 @@
 </html>
 <!DOCTYPE html>
 <html>
+@include('header')
 <head>
 	<title></title>
 	<!-- CSS only -->
@@ -22,7 +23,7 @@
 	</style>
 </head>
 
-@include('header')
+
 
 <body>
 <h2 class="text-center p-2">Requerimientos de Fase de Publicaciones</h2>

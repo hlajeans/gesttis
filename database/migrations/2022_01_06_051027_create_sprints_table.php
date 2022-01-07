@@ -13,7 +13,7 @@ class CreateSprintsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pagos', function (Blueprint $table) {
+        Schema::create('sprints', function (Blueprint $table) {
             $table->id();
 
             $table->string ('nombreGrupo')->nullable();

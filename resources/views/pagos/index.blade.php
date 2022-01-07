@@ -3,6 +3,8 @@
 @section('title', 'Home')
 
 @section('content')
+
+
 <div class="container">
     <div class="col-12">
         <div class="row">
@@ -11,6 +13,7 @@
                 <div class="float-rid">
                     <a class="btn btn-success" href="{{ route('pagos.create') }}">Registrar</a>
                 </div>
+
                 <table class="table table-bordered">
                     <thead>
                         <tr class="bg-blue-500 text-black">
@@ -34,8 +37,7 @@
                         @foreach ($pagos as $row)
 
                         <tr>
-                            <td class="py-3 px-6"><?php $id++;
-                                                    echo $id; ?></td>
+                            <td class="py-3 px-6"><?php $id++; echo $id; ?></td>
                             <td class="p-3 ">{{$row->nombreGrupo}}</td>
                             <td class="p-3 ">{{$row->numeroIteracion}}</td>
                             <td class="p-3 ">{{$row->totalPagar}}</td>
@@ -54,6 +56,7 @@
                                         </button>
                                     </div>
                                 </form>
+
                                 <div>
                                     <a href="{{route('pagos.edit', $row->id)}}" class="btn text-white btn-warning">
                                         <i class="fa fa-pencil"></i></a>

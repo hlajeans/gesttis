@@ -22,6 +22,7 @@ href="https://cdnje.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css"
    <a href="{{route('pagos.create')}}" class="text-black rounded px-4 pt-1 h-10 bg-blue-500
    font-semibold mx-2 hover:bg-blue">Create</a>
    </nav>
+   
     <main class="p-16 flex justify-center">
         @yield ('content')
     </main>

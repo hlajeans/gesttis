@@ -3,6 +3,8 @@
 @section('title', 'Edit')
 
 @section('content')
+
+
 <form action="{{route('pagos.update', $pago->id)}}" method="POST" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg">
     @csrf
     @method('put')
