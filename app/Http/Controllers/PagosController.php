@@ -12,7 +12,6 @@ class PagosController extends Controller
     }*/
     public function index(){
         
-        
         $pagos=Pago::all();
         
         return view('pagos.index', compact('pagos')) ;
