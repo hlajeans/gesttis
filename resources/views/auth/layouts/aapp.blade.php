@@ -15,7 +15,7 @@ href="https://cdnje.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css"
 
 </head>
 <body class="bg-gray-100 text-gray-800">
-   <nav class="h-16 flex justify-end py-4 px-16">
+   <nav class="h-12 flex justify-end py-4 px-7">
     <a href="{{ route('pagos.index')}}"  class="border border-blue-500
    rounded px-4 pt-1 h-10 bg-white text-blue-500 font-semibold mx-2">
    Pagos</a>

@@ -4,8 +4,6 @@
 
 @section('content')
 
-@include('header')
-
 <form action="{{route('sprints.update', $sprint->id)}}" method="POST" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg">
     @csrf
     @method('put')

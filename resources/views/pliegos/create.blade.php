@@ -26,28 +26,28 @@
 
                 <h2 class="text-center p-2">Pliegos de especificaciones</h2>
                     <div class="col-7" style="margin: 0 auto;"> 
-                        <div class="mb-1 ">
+                        <!-- <div class="mb-1 ">
                             <label for="formGroupExampleInput" class="form-label">Docente</label>
                             <input class="form-control" type="text" name="docente" id="formGroupExampleInput" class="form-control-file">
-                        </div>
+                        </div> -->
 
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Titulo</label>
                             <input class="form-control" type="text" name="titulo" id="formGroupExampleInput" class="form-control-file">
                         </div>
 
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Materia</label>
                             <input class="form-control" type="text" name="materia" id="formGroupExampleInput" class="form-control-file">
-                        </div>
+                        </div> -->
 
-                        <div class="mb-1">
+                        <!-- <div class="mb-1">
                             <label for="formGroupExampleInput" class="form-label">Fecha</label>
                             <input class="form-control" type="date" name="fecha" id="formGroupExampleInput" class="form-control-file">
-                        </div>
+                        </div> -->
 
                         <div class="mb-1">
-                            <label for="formGroupExampleInput" class="form-label">SisMat</label>
+                            <label for="formGroupExampleInput" class="form-label">Codigo-Pliego</label>
                             <input class="form-control" type="text" name="sismat" id="formGroupExampleInput" class="form-control-file">
                         </div>
 

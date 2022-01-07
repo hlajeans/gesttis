@@ -27,17 +27,17 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Docente</th>
+                <!-- <th scope="col">Docente</th> -->
                 <th scope="col">Titulo</th>
-                <th scope="col">Materia</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">SisMat</th>
+                <!-- <th scope="col">Materia</th> -->
+                <!-- <th scope="col">Fecha</th> -->
+                <th scope="col">Codigo-Pliego</th>
                 <th scope="col">Semestre</th>
 
                 <th scope="col">Creado</th>
                 <th scope="col">Actualizado</th>
                 <th scope="col">Acciones</th>
-
+                <th scope="col">Documento</th>
               </tr>
             </thead>
             <tbody>
@@ -49,10 +49,10 @@
                 <td><?php $i++;
                     echo $i; ?></td>
                 <!-- <td>{{@$item->id}}</td> -->
-                <td>{{@$item->docente}}</td>
+                <!-- <td>{{@$item->docente}}</td> -->
                 <td>{{@$item->titulo}}</td>
-                <td>{{@$item->materia}}</td>
-                <td>{{@$item->fecha}}</td>
+                <!-- <td>{{@$item->materia}}</td> -->
+                <!-- <td>{{@$item->fecha}}</td> -->
                 <td>{{@$item->sismat}}</td>
                 <td>{{@$item->semestre}}</td>
 
