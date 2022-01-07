@@ -23,23 +23,23 @@
             </a>
 
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==3 | Auth::user()->rol==4)
+                
                 <li><a href="/convocatoria" class="nav-link px-2 text-blue">CONVOCATORIA</a></li>
-                @endif
+                
 
-                @if(Auth::user()->rol==1)
+              
                 <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-blue">PLIEGO DE ESPECIFICACIONES</a></li>
-                @endif
+              
 
-                @if(Auth::user()->rol==1)
+                
                 <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">GRUPO-EMPRESA</a></li>
-                @endif
+               
 
-                @if(Auth::user()->rol==1)
+                @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==4)
                 <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
                 @endif
                
-                @if(Auth::user()->rol==1)
+                @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==4)
                 <!-- Example single danger button -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-white dropdown-toggle nav-link px-2 text-blue" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,7 +69,7 @@
                 @if(auth()->check())
                 <form action="{{ url('logout') }}" method="POST" style="display: inline;">
                     {{ csrf_field() }}
-                    <button class="btn btn-danger" type="submit">Salir</button>
+                    <button class="btn btn-danger" type="submit">Cerrar Sesion</button>
                 </form>
                 @else
                 <a href="{{url('login')}}" type="button" class="btn btn-warning">Iniciar Sesion</a>

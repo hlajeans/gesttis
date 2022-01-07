@@ -58,6 +58,7 @@
               <td>
 
                 @if(Auth::user()->rol==1 | Auth::user()->rol==4)
+                
                 <form action="{{ route('convocatoria.destroy',$item->id) }}" method="POST">
                   <a href="{{ route('convocatoria.edit',$item->id)}}" class="btn btn-white btn-sm"><i class="fas fa-edit"></i> </a>
 
