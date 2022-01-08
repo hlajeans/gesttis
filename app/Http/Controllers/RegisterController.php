@@ -41,8 +41,8 @@ class RegisterController extends Controller
 
                 'codigo.required' => 'Campo obligatorio',
                 'codigo.numeric' => 'Solo se aceptan caracteres numericos',
-                'codigo.max' => 'Se debe ingresar como maximo 9 caracteres',
-                'codigo.min' => 'Se debe ingresar como minimo 9 caracteres',
+                // 'codigo.max' => 'Se debe ingresar como maximo 9 caracteres',
+                // 'codigo.min' => 'Se debe ingresar como minimo 9 caracteres',
 
                 'grupo.required' => 'Campo obligatorio'
             ]
