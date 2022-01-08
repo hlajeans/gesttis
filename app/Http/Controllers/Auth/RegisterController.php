@@ -61,7 +61,7 @@ class RegisterController extends Controller
                 'email' => 'required|email',
                 'password' => 'required|confirmed ',
                 'password_confirmation' => "required",
-                'codigo' => 'required | numeric | max:9 | min:9',
+                // 'codigo' => 'required | numeric | max:9 | min:9',
                 'grupo' => 'required'
 
             ],
@@ -79,10 +79,10 @@ class RegisterController extends Controller
 
                 'password_confirmation.required' => 'Campo obligatorio',
 
-                'codigo.required' => 'Campo obligatorio',
-                'codigo.numeric' => 'Solo se aceptan caracteres numericos',
-                'codigo.max' => 'Se debe ingresar como maximo 9 caracteres',
-                'codigo.min' => 'Se debe ingresar como minimo 9 caracteres',
+                // 'codigo.required' => 'Campo obligatorio',
+                // 'codigo.numeric' => 'Solo se aceptan caracteres numericos',
+                // 'codigo.max' => 'Se debe ingresar como maximo 9 caracteres',
+                // 'codigo.min' => 'Se debe ingresar como minimo 9 caracteres',
 
                 'grupo.required' => 'Campo obligatorio'
             ]

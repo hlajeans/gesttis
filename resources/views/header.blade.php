@@ -74,7 +74,15 @@
                 @else
                 <a href="{{url('login')}}" type="button" class="btn btn-warning">Iniciar Sesion</a>
                 @endif
+
+                @if(auth()->check())
+                    @if(Auth::user()->rol==1)
+                    <a href="{{url('register')}}" type="button" class="btn btn-warning">Registrase</a>
+                    @endif
+                @else 
                 <a href="{{url('register')}}" type="button" class="btn btn-warning">Registrase</a>
+                @endif 
+                
             </div>
         </div>
     </div>

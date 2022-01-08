@@ -70,6 +70,7 @@
                   @endif
                 </td>
                 <td>
+                {{@$item->PathFile}}
                   <a href="{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
                 </td>
               </tr>
