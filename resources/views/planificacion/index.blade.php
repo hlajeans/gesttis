@@ -22,6 +22,11 @@
   @if(Auth::user()->rol==1 | Auth::user()->rol==4)
   <h2 class="text-center p-2">Listado de Fase-Publicacion</h2>
   <table class="table table-bordered">
+  @if(Auth::user()->rol==1 | Auth::user()->rol==4)
+  <div class="float-rid">
+            <a class="btn btn-success" href="{{url('sobres/show') }}">Regresar</a>
+          </div>
+          @endif
     <thead>
       <tr>
         <th scope="col">#</th>
