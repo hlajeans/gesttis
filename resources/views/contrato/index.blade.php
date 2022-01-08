@@ -17,8 +17,9 @@
 
 @include('header')
 
-@if(Auth::user()->rol==1 | Auth::user()->rol==4)
+
 <body>
+@if(Auth::user()->rol==1 | Auth::user()->rol==4)
   <div class="container">
     <div class="col-12">
       <div class="row">
@@ -67,7 +68,22 @@
       </div>
     </div>
   </div>
-</body>
+  @endif
+
+  @if(Auth::user()->rol==1 | Auth::user()->rol==2)
+<div class=" container">
+      <div class="col-12">
+        <div class="row">
+          <h2 class=" text-center p-2">Fue registrado exitosamente</h2>
+          <div class="float-rid">
+            <a class="btn btn-success" href="{{url('contrato/create')}}">Regresar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 @endif
+</body>
+
 
 </html>

@@ -111,9 +111,6 @@
           <div class="float-rid">
             <a class="btn btn-success" href="{{url('sobres/show') }}">Regresar</a>
           </div>
-          <!-- <div>
-            <a class="btn btn-danger" href="{{ route('planificacion.create') }}" ">RegistrarNuevo</a>
-          </div> -->
         </div>
       </div>
     </div>

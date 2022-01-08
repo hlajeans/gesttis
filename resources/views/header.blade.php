@@ -36,7 +36,7 @@
                
 
                 @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==4)
-                <li><a href="{{url('contrato')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
+                <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
                 @endif
                
                 @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==4) 

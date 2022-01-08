@@ -26,10 +26,22 @@
             <label for="formGroupExampleInput" class="form-label">Fin</label>
             <input class="form-control" type="date" class="form-control-file" name="finIteracion">
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Nota</label>
             <input class="form-control" type="text" class="form-control-file" name="nota">
+        </div> -->
+
+        <div class="row featurette">
+            <div class="col-md-20 order-md-2">
+                <h2 class="fs-5 featurette-heading ">NOTA<span class="text-muted"></span></h2>
+                <p class="fs-6 lead fst-italic">Cada fecha de finalización de Sprint según lo comprometido en su Propuesta Técnica debe presentarse la siguiente documentación:
+                    <br>a) PARA EL ROL DOCENTE: Análisis (Historias de Usuario), Diseño (Interfaces (Moockups) y modelo de base de datos), Implementación (screenshoots de los prototipos (software desarrollado) con pequeña reseña de funcionamiento no mas de un párrafo), Pruebas (Unitarias, Integración, Sistema), además de Burndown y Retrospectiva.</br>
+                    b) PARA EL ASESOR: Actas de reuniones, Evaluación individual (elaborada por cada integrante) y evaluación grupal (elaborada por el Scrum Master) según formularios adjuntos.
+                    <br>c) PARA EL CLIENTE: Pruebas de aceptación.</br>
+                </p>
+            </div>
         </div>
+
         <div class="class=" col-12 mb-3">
             <button class="btn btn-success" type="submit">Actualizar</button>
 

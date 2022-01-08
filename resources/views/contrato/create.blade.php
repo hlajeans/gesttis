@@ -13,14 +13,15 @@
 </head>
 
 @include('header')
-@if(Auth::user()->rol==1 | Auth::user()->rol==2)
-<body>
 
+
+<body>
+    
     <div class="container">
         <div class="col-12">
             <div class="row">
 
-
+                
                 <form action="{{route('contrato.store')}}" method="POST" enctype="multipart/form-data">
 
                     @csrf
@@ -51,14 +52,15 @@
 
                         <div class="class=" col-12 d-grid gap-2"">
                             <button class="btn btn-success" type="submit">Registrar</button>
-                            <a class="btn btn-primary" href="/">Cancelar</a>
+                            <a class="btn btn-primary" href="/home"">Cancelar</a>
                         </div>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>
-
+    
     <footer class="my-2 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2021 Company B.Tec_TIS</p>
         <ul class="list-inline">
@@ -69,5 +71,5 @@
     </footer>
 
 </body>
-@endif
+
 </html>
