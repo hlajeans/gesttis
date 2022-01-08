@@ -36,6 +36,7 @@
               <th scope="col">Creado</th>
               <th scope="col">Actualizado</th>
               <th scope="col">Acciones</th>
+              <th scope="col">Documento</th>
 
             </tr>
           </thead>
