@@ -12,9 +12,8 @@ class Sprint extends Model
 
         'nombreGrupo',
        'numeroIteracion',
-        'inicioSprint',
-       'finSprint',
-       
+        'inicioIteracion',
+       'finIteracion',
       'documento',
 
     ] ;

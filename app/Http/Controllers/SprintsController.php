@@ -26,24 +26,24 @@ class SprintsController extends Controller
     }
 
     public function store(Request $request){
-        $sprint =new Sprint();
-        $sprint->nombreGrupo = $request->nombreGrupo;
-        $sprint->numeroIteracion = $request->numeroIteracion;
-        $sprint->inicioIteracion = $request->inicioIteracion;
-        $sprint->finIteracion = $request->finIteracion;
-
-        $documento='';
-        // dd ($request->all());
+        // $sprint =new Sprint();
+        // $sprint->nombreGrupo = $request->nombreGrupo;
+        // $sprint->numeroIteracion = $request->numeroIteracion;
+        // $sprint->inicioIteracion = $request->inicioIteracion;
+        // $sprint->finIteracion = $request->finIteracion;
+        // return $request->all();
+        $input=$request->except('_token');
         if($request->hasfile('file')){
             
             $archivo=$request->file('file');
-            $documento=time().'_'.$archivo->getClientOriginalName();
+            $input ['documento']=time().'_'.$archivo->getClientOriginalName();
             
-            $archivo->move(public_path('Archivos'),$documento);
+            $archivo->move(public_path('Archivos'),$input['documento']);
         }
-        $sprint->documento=$documento;
-        $sprint->save();
-        return redirect()->route('sprints.index');
+        
+        Sprint::create($input);
+        $sprints=Sprint::all();
+        return view('sprints.index',compact('sprints'));
     }
 
     public function edit ($id){
