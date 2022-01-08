@@ -79,7 +79,7 @@
 
 			@if(Auth::user()->rol==1 | Auth::user()->rol==4)
 			<div class="d-grid gap-2 col-3 mx-auto mt-4">
-				<a class="btn btn-primary" href="{{url('planificacion')}}">Ver Docomentos</a>
+				<a class="btn btn-primary" href="{{url('planificacion')}}">Ver Documentos</a>
 			</div>
 			@endif
 
