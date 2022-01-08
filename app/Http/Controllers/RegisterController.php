@@ -21,7 +21,7 @@ class RegisterController extends Controller
                 'email' => 'required|email',
                 'password' => 'required|confirmed ',
                 'password_confirmation' => "required",
-                'codigo' => 'required | numeric | max:10 | min:9',
+                // 'codigo' => 'required | numeric | max:10 | min:9',
                 'grupo' => 'required'
 
             ],

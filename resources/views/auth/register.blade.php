@@ -29,9 +29,9 @@
                         <label for="codigo">Codigo SIS</label>
                         <input type="text" class="form-control" id="codigo" name="codigo">
                     </div>
-                    @error('codigo')
+                    <!-- @error('codigo')
                     <p class="border border-red-500 rounded-md bg-red-100 w-full text-red-600 p-2 my*-2">* {{$message}}</p>
-                    @enderror
+                    @enderror -->
 
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
