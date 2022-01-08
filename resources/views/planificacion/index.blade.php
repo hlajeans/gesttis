@@ -97,19 +97,23 @@
   </div>
   @endif
 @endif
+
+@if(Auth::user()->rol==1 | Auth::user()->rol==2)
 <div class=" container">
       <div class="col-12">
         <div class="row">
           <h2 class=" text-center p-2">Fue registrado exitosamente</h2>
           <div class="float-rid">
-            <a class="btn btn-success" href="{{url('sobres/show') }}">Registrar</a>
+            <a class="btn btn-success" href="{{url('sobres/show') }}">Regresar</a>
           </div>
-          <div>
+          <!-- <div>
             <a class="btn btn-danger" href="{{ route('planificacion.create') }}" ">RegistrarNuevo</a>
+          </div> -->
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
+</div>
+@endif
 </body>
 
     
