@@ -71,11 +71,7 @@
 
               </td>
               <td>
-
                 <a href="{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
-
-
-
               </td>
             </tr>
             @endforeach

@@ -10,7 +10,7 @@ class SprintsController extends Controller
     public function index(){
 
         $sprints = Sprint::all();
-
+        
         return view('sprints.index', compact('sprints')) ;
     }
 
@@ -19,6 +19,7 @@ class SprintsController extends Controller
         return view('sprints.create');
         
     }
+
 
     public function show($id){
         dd ('hola');
@@ -30,7 +31,17 @@ class SprintsController extends Controller
         $sprint->numeroIteracion = $request->numeroIteracion;
         $sprint->inicioIteracion = $request->inicioIteracion;
         $sprint->finIteracion = $request->finIteracion;
-        $sprint->nota = $request->nota;
+
+        $documento='';
+        // dd ($request->all());
+        if($request->hasfile('file')){
+            
+            $archivo=$request->file('file');
+            $documento=time().'_'.$archivo->getClientOriginalName();
+            
+            $archivo->move(public_path('Archivos'),$documento);
+        }
+        $sprint->documento=$documento;
         $sprint->save();
         return redirect()->route('sprints.index');
     }

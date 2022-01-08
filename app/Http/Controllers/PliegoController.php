@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pliego;
 use Illuminate\Http\Request;
+use App\Models\Pliego;
 
 class PliegoController extends Controller
 {
@@ -52,6 +52,7 @@ class PliegoController extends Controller
 
             $pliegos=Pliego::all();
         return view('pliegos.index',compact('pliegos'));
+
     }
 
     /**

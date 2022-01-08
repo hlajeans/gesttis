@@ -28,7 +28,7 @@
                             <!-- <th class="w-1/16 py-4 ...">Nota</th> -->
                             <th class="w-1/16 py-4 ...">Creado</th>
                             <th class="w-1/16 py-4 ...">Actualizado</th>
-                            <th class="w-28 py-4 ...">acciones</th>
+                            <th class="w-28 py-4 ...">Documento</th>
                         </tr>
 
                     </thead>
@@ -66,7 +66,9 @@
                                 @endif
 
                             </td>
-
+                            <td>
+                                <a href="{{@$row->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

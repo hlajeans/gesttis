@@ -14,7 +14,17 @@ class Sprint extends Model
        'numeroIteracion',
         'inicioSprint',
        'finSprint',
-      'nota',
+       
+      'documento',
 
     ] ;
+
+    public function getPathFileAttribute(){
+        if ($this->documento) {
+            if (substr($this->documento, 0, 4) === "http")
+                return $this->documento;
+            return asset('Archivos').'/' . $this->documento;
+        }
+        
+    }
 }

@@ -20,7 +20,7 @@ class CreateSprintsTable extends Migration
             $table->string ('numeroIteracion');
             $table->string('inicioIteracion');
             $table->string ('finIteracion');
-            $table->string ('nota');
+            $table->string ('documento')->nullable();
             
             $table->timestamps();
         });

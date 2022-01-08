@@ -4,7 +4,7 @@
 
 @section('content')
 @include('header')
-<form action="{{route('sprints.store')}}" method="POST" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg">
+<form action="{{route('sprints.store')}}" method="POST" enctype="multipart/form-data" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg ">
     @csrf
     <h2 class="text-center p-2">NUEVO PLANIFICACION DE SPRINTS</h2>
     <div class="col-5" style="margin: 0 auto;">
@@ -40,6 +40,12 @@
                     <br>c) PARA EL CLIENTE: Pruebas de aceptación.</br>
                 </p>
             </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputPassword4" class="form-label">Subir PDF "Sprint""</label>
+            <input type="file" accept=".pdf" class="form-control" name="file" aria-label="file example" required>
+            <div class="invalid-feedback">Subir PDF "Sprint"</div>
         </div>
 
         <div class="class=" col-12 mb-3">
