@@ -57,12 +57,12 @@
                                         </button>
                                     </div>
                                 </form>
-                                @endif
+                                
                                 <div>
                                     <a href="{{route('pagos.edit', $row->id)}}" class="btn text-white btn-warning">
                                         <i class="fa fa-pencil"></i></a>
                                 </div>
-
+                                @endif
 
                             </td>
 

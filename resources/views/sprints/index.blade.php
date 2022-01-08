@@ -25,7 +25,7 @@
                             <th class="w-1/16 py-4 ...">Numero de Sprint</th>
                             <th class="w-1/16 py-4 ...">Inicio </th>
                             <th class="w-1/16 py-4 ...">Fin</th>
-                            <th class="w-1/16 py-4 ...">Nota</th>
+                            <!-- <th class="w-1/16 py-4 ...">Nota</th> -->
                             <th class="w-1/16 py-4 ...">Creado</th>
                             <th class="w-1/16 py-4 ...">Actualizado</th>
                             <th class="w-28 py-4 ...">acciones</th>
@@ -46,11 +46,11 @@
                             <td class="p-3 ">{{$row->numeroIteracion}}</td>
                             <td class="p-3 ">{{$row->inicioIteracion}}</td>
                             <td class="p-3 ">{{$row->finIteracion}}</td>
-                            <td class="p-3 ">{{$row->nota}}</td>
+                            <!-- <td class="p-3 ">{{$row->nota}}</td> -->
                             <td class="p-3 text-center"> {{$row->created_at}}</td>
                             <td class="p-3 text-center"> {{$row->updated_at}}</td>
                             <td>
-@if(Auth::user()->rol==1 | Auth::user()->rol==2)
+                            @if(Auth::user()->rol==1 | Auth::user()->rol==2)
                                 <form action="{{route('sprints.destroy',$row->id)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -58,12 +58,12 @@
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
-                                @endif
+                                
                                 <div>
                                     <a href="{{route('sprints.edit', $row->id)}}" class="btn text-white btn-warning">
                                         <i class="fa fa-pencil"></i></a>
                                 </div>
-
+                                @endif
 
                             </td>
 

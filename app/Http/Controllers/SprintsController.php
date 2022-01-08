@@ -9,7 +9,7 @@ class SprintsController extends Controller
 {
     public function index(){
 
-        $sprint = Sprint::all();
+        $sprints = Sprint::all();
 
         return view('sprints.index', compact('sprints')) ;
     }

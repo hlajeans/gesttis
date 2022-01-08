@@ -13,7 +13,7 @@
 </head>
 
 @include('header')
-
+@if(Auth::user()->rol==1 | Auth::user()->rol==2)
 <body>
 
     <div class="container">
@@ -69,5 +69,5 @@
     </footer>
 
 </body>
-
+@endif
 </html>

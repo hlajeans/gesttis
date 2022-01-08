@@ -17,6 +17,7 @@
 
 @include('header')
 
+@if(Auth::user()->rol==1 | Auth::user()->rol==4)
 <body>
   <div class="container">
     <div class="col-12">
@@ -55,11 +56,7 @@
 
 
               <td>
-
                 <a href="{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
-
-
-
               </td>
             </tr>
             @endforeach
@@ -71,5 +68,6 @@
     </div>
   </div>
 </body>
+@endif
 
 </html>

@@ -37,10 +37,6 @@
                         <input class="form-control" type="text" name="representante" id="formGroupExampleInput" class="form-control-file">
                     </div>
 
-                    <!-- <div class="mb-1">
-                            <label for="formGroupExampleInput" class="form-label">Codigo</label>
-                            <input class="form-control" type="text" name="codigo" id="formGroupExampleInput" class="form-control-file">
-                        </div> -->
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Correo</label>
                         <input type="email" class="form-control" name="correo" id="exampleFormControlInput1" placeholder="name@example.com">

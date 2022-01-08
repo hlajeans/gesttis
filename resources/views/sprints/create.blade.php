@@ -3,7 +3,7 @@
 @section('title', 'Create')
 
 @section('content')
-
+@include('header')
 <form action="{{route('sprints.store')}}" method="POST" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg">
     @csrf
     <h2 class="text-center p-2">NUEVO PLANIFICACION DE SPRINTS</h2>
@@ -19,12 +19,12 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Inicio </label>
-            <input class="form-control" type="text" class="form-control-file" name="inicioIteracion">
+            <input class="form-control" type="date" class="form-control-file" name="inicioIteracion">
         </div>
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Fin</label>
-            <input class="form-control" type="text" class="form-control-file" name="finIteracion">
+            <input class="form-control" type="date" class="form-control-file" name="finIteracion">
         </div>
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Nota</label>

@@ -68,15 +68,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
     <footer class="my-2 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2021 Company B.Tec_TIS</p>
         <ul class="list-inline">

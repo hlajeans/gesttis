@@ -18,18 +18,22 @@
 </head>
 @include('header')
 
+
+@if(Auth::user()->rol==1 | Auth::user()->rol==4)
 <body>
 
 	<div class="container">
 		<div class="row">
 
-
+		
 			<form action="{{ route('sobres.store') }}" method="POST" enctype="multipart/form-data">
 
 				@csrf
 
-
+				
 				<h2 class="text-center p-2">Fase de Publicaciones</h2>
+				
+
 				<div class="container">
 					<div class="row">
 						<div class="row g-2">
@@ -59,12 +63,14 @@
 						<input class="form-control" name="fecha" style="justify-content: center;" id="exampleFormControlTextarea1" rows="1"></input>
 
 					</div>
+				@endif
 
+				
 					<div class="d-grid gap-2 col-3 mx-auto mt-4">
 						<button class="btn btn-primary" type="submit">Publicar </button>
 
 					</div>
-
+				
 
 					<footer class="my-2 pt-5 text-muted text-center text-small">
 						<p class="mb-1">© 2021 Company B.Tec_TIS</p>
@@ -77,6 +83,7 @@
 
 				</div>
 			</form>
+			
 		</div>
 	</div>
 

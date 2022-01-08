@@ -17,7 +17,9 @@
 
 @include('header')
 
+
 <body>
+  @if(Auth::user()->rol==1 | Auth::user()->rol==4)
   <h2 class="text-center p-2">Listado de Fase-Publicacion</h2>
   <table class="table table-bordered">
     <thead>
@@ -89,10 +91,26 @@
     </tbody>
 
   </table>
+  @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==3)
   <div>
-    <a class="btn btn-danger" href="{{ route('planificacion.create') }}" target="blank_">RegistrarNuevo</a>
+    <a class="btn btn-danger" href="{{ route('planificacion.create') }}"">RegistrarNuevo</a>
   </div>
-
+  @endif
+@endif
+<div class=" container">
+      <div class="col-12">
+        <div class="row">
+          <h2 class=" text-center p-2">Fue registrado exitosamente</h2>
+          <div class="float-rid">
+            <a class="btn btn-success" href="{{url('sobres/show') }}">Registrar</a>
+          </div>
+          <div>
+            <a class="btn btn-danger" href="{{ route('planificacion.create') }}" ">RegistrarNuevo</a>
+    </div>
+    </div>
+    </div>
+    </div>
 </body>
 
+    
 </html>
