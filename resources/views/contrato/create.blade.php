@@ -21,7 +21,7 @@
         <div class="col-12">
             <div class="row">
 
-                
+                @if(Auth::user()->rol==1 | Auth::user()->rol==2)
                 <form action="{{route('contrato.store')}}" method="POST" enctype="multipart/form-data">
 
                     @csrf
@@ -56,6 +56,7 @@
                         </div>
                     </div>
                 </form>
+                @endif
                 
             </div>
         </div>
