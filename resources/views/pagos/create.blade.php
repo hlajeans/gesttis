@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+@if(Auth::user()->rol==1 | Auth::user()->rol==2)
 <form action="{{route('pagos.store')}}" method="POST" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg">
     @csrf
     <h2 class="text-center p-2">NUEVO PLAN DE PAGOS</h2>
@@ -37,5 +37,6 @@
         </div>
     </div>
 </form>
+@endif
 
 @endsection
