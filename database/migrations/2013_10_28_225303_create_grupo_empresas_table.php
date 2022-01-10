@@ -6,13 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateGrupoEmpresasTable extends Migration
 {
-    /**
-     * Run the migrations.
+    /**Migraciones Grupo Empresa
+     * 
+     * Corre las migraciones correspondientes para la tabla "grupo empresas"
+     * en la base de datos (Adjunta los atributos correspondientes en la tabla).
      *
      * @return void
      */
     public function up()
     {
+        /**
+         * Definimos los atributos para la tabla "grupoempresas"
+         */
         Schema::create('grupo_empresas', function (Blueprint $table) {
             $table->id();
 
@@ -33,7 +38,7 @@ class CreateGrupoEmpresasTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Funcion que regresa las migraciones.
      *
      * @return void
      */

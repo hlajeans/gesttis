@@ -8,18 +8,24 @@ use Illuminate\Http\Request;
 class CardController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Controlador Card
+     * 
+     * Se despliega la lista de recursos disponibles
+     * para el tablero de actividades y sus tarjetas.
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Funcion por defecto
+     */
     public function index()
     {
-        $carta['cards'] = Card::paginate(10);
+        $carta['cards'] = Card::paginate(100);
         return view('card.index',$carta);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra la forma para crear una nueva tarjeta.
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,7 +36,7 @@ class CardController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena la informacion a guardar de las tarjetas en la base de datos.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -67,7 +73,7 @@ class CardController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra los detalles de una tarjeta.
      *
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
@@ -79,7 +85,7 @@ class CardController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario de edicion de una tarjeta (editar).
      *
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
@@ -91,7 +97,8 @@ class CardController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza los datos existentes de una tarjeta en la base de datos
+     * por otros que se incluyen en la funcion edit.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Card  $card
@@ -124,7 +131,7 @@ class CardController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina una tarjeta del tablero.
      *
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response

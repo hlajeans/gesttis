@@ -1,3 +1,9 @@
+  <!--comment>
+            Editar tarjeta
+
+            Hace uso del formulario para editar los datos de acuerdo
+            a una tarjeta especifica
+    </comment-->
 <!DOCTYPE html>
 <head>
 <title> Editar Grupo Empresa | Gestion TIS </title>

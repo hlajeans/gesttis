@@ -1,3 +1,9 @@
+  <!--comment>
+            Editar grupoempresa
+
+            Hace uso del formulario para editar los datos de acuerdo
+            a una grupoempresa especifica
+    </comment-->
 <!DOCTYPE html>
 <head>
 <title> Editar Grupo Empresa | Gestion TIS </title>

@@ -1,3 +1,8 @@
+  <!--comment>
+            Crear tarjeta
+
+            Hace uso del formulario para crear una tarjeta
+    </comment-->
 <!DOCTYPE html>
 <head>
 <title> Añadir Tarjeta | Gestion TIS </title>

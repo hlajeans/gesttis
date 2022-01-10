@@ -7,8 +7,11 @@ use Illuminate\Support\Facades\Schema;
 class CreateCardsTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
+     *Migraciones Tarjetas
+     * 
+     * Corre las migraciones correspondientes para la tabla "Tarjetas"
+     * en la base de datos (Adjunta los atributos correspondientes en la tabla).
+     * 
      * @return void
      */
     public function up()
@@ -25,7 +28,7 @@ class CreateCardsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Regresa las migraciones.
      *
      * @return void
      */

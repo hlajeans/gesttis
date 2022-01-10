@@ -1,6 +1,16 @@
+  <!--comment>
+            Formulario Grupo Empresa
+
+            Formulario diseñado para editar o crear una grupo empresa
+    </comment-->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <br/>
 <h2>{{$modo}} Grupo Empresa</h2>
+  <!--comment>
+            Creamos una alerta en caso de que suceda algun error
+            en el formulario
+    </comment-->
 @if(count($errors)>0)
 <div class="alert alert-danger" role="alert">
 <ul>
@@ -11,6 +21,10 @@
 </div>
 @endif
 <br/>
+  <!--comment>
+           Designamos los campos necesarios para crear o editar 
+           una grupoempresa
+    </comment-->
 <div class="form-group">
 <label for="Nombre"> Nombre de la Grupo Empresa*</label>
 <input type= "text" class="form-control" name="Nombre" id="Nombre" value="{{isset($gp->Nombre)? $gp->Nombre:old('Nombre')}}">
@@ -74,8 +88,11 @@
 <label for="Socio4"> Nombre Socio 4</label>
 <input type= "text" name="Socio4" class="form-control" id="Socio4" value="{{isset($gp->Socio4)? $gp->Socio4:old('Socio4')}}">
 </div>
-
+  <!--comment>
+          Funciones para registrar/actualizar los datos y volver atras
+    </comment-->
 <br/>
 <input type= "submit" class="btn btn-dark"value="{{$modo}} datos">
 <a href="{{url('/grupoempresa')}}" class="btn btn-secondary">Regresar</a>
+<br/>
 <br/>

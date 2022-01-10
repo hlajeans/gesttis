@@ -9,9 +9,16 @@ use Illuminate\Support\Facades\DB;
 class GrupoEmpresaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Controlador Grupo Empresas
+     * 
+     * Se despliega las funciones disponibles para las 
+     * grupo empresas.
      *
      * @return \Illuminate\Http\Response
+     */
+    /**
+     * Funcion por defecto para las grupo empresas,
+     * ademas de la funcion "Buscar Grupo Empresas"
      */
     public function index(Request $request)
     {
@@ -30,7 +37,7 @@ class GrupoEmpresaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para registrar una nueva grupo empresa.
      *
      * @return \Illuminate\Http\Response
      */
@@ -40,7 +47,8 @@ class GrupoEmpresaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena los datos ingresados para guardar una grupo empresa
+     * en la base de datos.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -66,7 +74,7 @@ class GrupoEmpresaController extends Controller
         $mensaje = [
             'required' => 'El :attribute es requerido',
             'Logo.required' => 'El logo de la empresa es requerido',
-            'Nombre.unique' => 'El nombre ingresado ya se encuentra registrado',
+            'Nombre.unique' => 'El nombre de la grupo empresa ingresada ya se encuentra registrado',
             'NombreCorto.unique' => 'El nombre corto ingresado ya se encuentra registrado'
         ];
 
@@ -84,7 +92,7 @@ class GrupoEmpresaController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra una grupo empresa en especifico.
      *
      * @param  \App\Models\GrupoEmpresa  $grupoEmpresa
      * @return \Illuminate\Http\Response
@@ -96,7 +104,8 @@ class GrupoEmpresaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar una grupo empresa 
+     * en especifico.
      *
      * @param  \App\Models\GrupoEmpresa  $grupoEmpresa
      * @return \Illuminate\Http\Response
@@ -108,7 +117,8 @@ class GrupoEmpresaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza los datos de una grupo empresa a partir de 
+     * lo ingresado en la funcion edit.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\GrupoEmpresa  $grupoEmpresa
@@ -118,8 +128,8 @@ class GrupoEmpresaController extends Controller
     {
         $campos = [
             
-            'Nombre' => 'required|alpha|max:100'/**|unique:grupo_empresas,Nombre,{this->grupo_empresa->id}'**/,
-            'NombreCorto' => 'required|alpha|max:100'/**|unique:grupo_empresas,NombreCorto,{this->grupo_empresa->id}'**/,
+            'Nombre' => 'required|string|max:100'/**|unique:grupo_empresas,Nombre,{this->grupo_empresa->id}'**/,
+            'NombreCorto' => 'required|string|max:100'/**|unique:grupo_empresas,NombreCorto,{this->grupo_empresa->id}'**/,
             'TipoSociedad' => 'required|string|max:100',
             'Correo' => 'required|email',
             'Telefono' => 'required|string|max:100',
@@ -159,7 +169,7 @@ class GrupoEmpresaController extends Controller
     }   
 
     /**
-     * Remove the specified resource from storage.
+     * Remueve una grupo empresa en especifico.
      *
      * @param  \App\Models\GrupoEmpresa  $grupoEmpresa
      * @return \Illuminate\Http\Response

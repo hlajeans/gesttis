@@ -1,3 +1,8 @@
+  <!--comment>
+            Crear tarjeta
+
+            Hace uso del formulario para crear una grupoempresa
+    </comment-->
 <!DOCTYPE html>
 <head>
 <title> Registrar Grupo Empresa | Gestion TIS </title>

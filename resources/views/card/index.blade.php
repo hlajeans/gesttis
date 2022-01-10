@@ -1,49 +1,19 @@
+<!--comment>
+            Vista por defecto: Tarjetas
+            Se muestra la vista por defecto cuando se 
+            ingresa a la seccion principal del tablero
+</comment-->
+
 <!DOCTYPE html>
 <head>
 <title> Mi Grupo Empresa | Gestion TIS </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-    <header class="p-3 bg-custom text-white">
-        <style>
-            .bd-placeholder-img {
-                font-size: 1.125rem;
-                text-anchor: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-            }
-    
-            @media (min-width: 768px) {
-                .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-                }
-            }
-        </style>
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-    
-            <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{{url('/pliegos')}}" class="nav-link px-2 text-black">Convocatorias</a></li>
-                <li><a href="/convocatoria/create" class="nav-link px-2 text-blue">Registrar Convocatoria</a></li>
-                <li><a href="" class="nav-link px-2 text-blue">Calendario</a></li>
-                <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
-                <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
-            </ul>
-    
-            <div class="text-end">
-                <button type="button" class="btn btn-warning">Iniciar Sesion</button>
-                <button type="button" class="btn btn-warning">Registrase</button>
-            </div>
-        </div>
-    </div>
-    </header>  
-
+<!--comment>
+Importamos el header y creamos la tabla para visualizar las tarjetas
+</comment-->
+@include('header')
     <div class="container">
         <h2 class="text-center">Tablero de actividades</h2>
         <div class="m-4">
@@ -61,6 +31,9 @@
                     <a href="#observacion" class="nav-link">Observaciones</a>
                 </li>
             </ul>
+            <!--comment>
+                Creamos un script para hacer dinamica las opciones disponibles en el tablero
+            </comment-->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
             <script>
             document.addEventListener("DOMContentLoaded", function(){
@@ -75,6 +48,10 @@
                 });
             });
             </script>
+            <!--comment>
+                Creamos la logica de la tabla para cada seccion
+                (Si encuentra datos los muestra, si no, muestra un mensaje de error)
+            </comment-->
         @if(count($cards)<=0)
         <br/>
         <div class="text-center"><a href="{{url('/card/create')}}" class="btn btn-dark center">+ Añadir</a><br/><br/></div>
@@ -86,6 +63,9 @@
             <a href="{{url('/card/create')}}" class="btn btn-dark center">+ Añadir Tarjeta</a>
         </div>
         <br/>
+        <!--comment>
+            Seccion Por Realizar
+        </comment-->
         <div class="tab-pane fade show active" id="porrealizar">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach($cards as $card)
@@ -109,7 +89,9 @@
           @endforeach
           </div>
         </div>
-
+        <!--comment>
+            Seccion En Curso
+        </comment-->
         <div class="tab-pane fade" id="encurso">
             <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach($cards as $card)
@@ -134,7 +116,9 @@
           @endforeach
         </div>
         </div>
-
+        <!--comment>
+            Seccion Terminadas
+        </comment-->
         <div class="tab-pane fade" id="terminadas">
             <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach($cards as $card)
@@ -159,6 +143,9 @@
           @endforeach
         </div>
         </div>
+        <!--comment>
+            Seccion Observacion
+        </comment-->
         <div class="tab-pane fade" id="observacion">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($cards as $card)

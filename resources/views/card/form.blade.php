@@ -1,6 +1,15 @@
+  <!--comment>
+            Formulario Tarjetas
+
+            Formulario diseñado para editar o crear una tarjeta
+    </comment-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <br/>
 <h1 >{{$modo}} Actividad</h1>
+  <!--comment>
+            Creamos una alerta en caso de que suceda algun error
+            en el formulario
+    </comment-->
 @if(count($errors)>0)
 <div class="alert alert-danger" role="alert">
 <ul>
@@ -10,7 +19,10 @@
 </ul>
 </div>
 @endif
-
+  <!--comment>
+           Designamos los campos necesarios para crear o editar 
+           una tarjeta
+    </comment-->
 <div class="form-group">
 <label for="Titulo" class="form-label"> Titulo*</label>
 <input type= "text" class="form-control" name="Titulo" id="Titulo" value="{{isset($card->Titulo)? $card->Titulo:old('Titulo')}}">
@@ -44,5 +56,9 @@
 </div>
 
 <br/>
+  <!--comment>
+            Funciones para enviar los datos correspondientes o regresar 
+            a la seccion anterior
+    </comment-->
 <input type= "submit" class="btn btn-dark" value="{{$modo}} datos">
 <a href="{{url('/card')}}" class="btn btn-secondary">Regresar</a>

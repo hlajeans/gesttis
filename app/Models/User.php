@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    //Relacion uno a muchos (con grupoempresa)
+    public function grupoempresa(){
+        return $this->belongsTo('App\Models\GrupoEmpresa');
+    }
 }

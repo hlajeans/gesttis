@@ -15,19 +15,13 @@ use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Rutas Web
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Sitio donde se almacenan todas las rutas para cada seccion de la pagina
 |
 */
 
-/*Route::get('/', function () {
-    return view('auth.login');
-});
-*/
 
 Auth::routes();
 Route::get('/vista', function () {
@@ -35,11 +29,7 @@ Route::get('/vista', function () {
 });
 
 
-
-
-//Route::get('/home',[GrupoEmpresaController::class, 'index'])->name('home');
 Route::group(['middleware' => 'auth'], function () {
-    //Route::get('/', [GrupoEmpresaController::class, 'index'])->name('home');
     Route::get('/home', function () {
         return view('vistaPrincipal');
     });
@@ -48,13 +38,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('sprints', App\Http\Controllers\SprintsController::class);
     
     Route::resource('pliegos', App\Http\Controllers\PliegoController::class);
-
+    //Ruta correspondiente para la grupo empresa
     Route::resource('grupoempresa', App\Http\Controllers\GrupoEmpresaController::class);
 
     Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
 
     Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
-    
+    //Ruta correspondiente para las tarjetas
     Route::resource('card', App\Http\Controllers\CardController::class);
     
     Route::resource('observacion', App\Http\Controllers\ObservacionController::class);
