@@ -70,10 +70,8 @@
                 <div class="row featurette">
                     <div class="col-md-7">
                         <h2 class="featurette-heading">SOLICITUD ESTUDIANTE - MODALIDAD ADSCRIPCION UTI(Unidad de Tecnologías de la Información) <span class="text-muted"></span></h2>
-                        <p class="lead">Un estudiante en etapa final graduación de la carrera de Ingeniería en Sistemas, bajo la modalidad de ADSCRIPCION. El Cual permitir generar una propuesta para la reinstalación, configuración y gestión de servidores.
-                            Convocatoria:
-                        
-                        </p>
+                        <p class="lead">Un estudiante en etapa final graduación de la carrera de Ingeniería en Sistemas, bajo la modalidad de ADSCRIPCION. El Cual permitir generar una propuesta para la reinstalación, configuración y gestión de servidores. Convocatoria:</p>
+
                         <p class="text-muted">
                             <a href="https://drive.google.com/file/d/18DrPo3U7O5tMzWkt9dkPKTgnzJ9_VQHu/view?usp=sharing" class="text-reset">https://drive.google.com/file/d/18DrPo3U7O5tMzWkt9dkPKTgnzJ9_VQHu/view?usp=sharing</a>.
                         </p>
@@ -82,7 +80,7 @@
                     <div class="col-md-5">
                         <a class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
 
-                            <img src="{{asset('labos.jpg')}}" width="500" alt="">
+                            <img src="{{asset('labos.jpg')}}" width="470" alt="">
 
                         </a>
 
@@ -96,7 +94,7 @@
                     <div class="col-md-7 order-md-2">
                         <h2 class="featurette-heading">TRABAJO DIRIGIDO<span class="text-muted"></span></h2>
                         <p class="lead">A tiempo de saludarlos como autoridades universitarios,como asociacion vecinal de agua portable "Cabaña Violeta" sin fines de lucro,solicitamos nos pueden apoyar con el desarrollo pdf:</p>
-                        
+
                         <p class="text-muted">
                             <a href="https://drive.google.com/file/d/1n-B2inhLFMAXDSwShXoMa8cbFSeD-sS7/view?usp=sharing" class="text-reset">https://drive.google.com/file/d/1n-B2inhLFMAXDSwShXoMa8cbFSeD-sS7/view?usp=sharing</a>.
                         </p>
@@ -116,7 +114,7 @@
                     <div class="col-md-7">
                         <h2 class="featurette-heading">PUBLICACION REVISTA <span class="text-muted"></span></h2>
                         <p class="lead">Revista informativa de las actividades académicas y administrativas del Departamento de Informática y Sistemas</p>
-                    
+
                         <p class="text-muted">
                             <a href="https://drive.google.com/file/d/1DRMxqfIlAZg6t4CPGpYv8ZSK7sZGWduz/view?usp=sharing" class="text-reset">https://drive.google.com/file/d/1DRMxqfIlAZg6t4CPGpYv8ZSK7sZGWduz/view?usp=sharing</a>.
                         </p>
@@ -124,7 +122,9 @@
                     </div>
                     <div class="col-md-5">
                         <a class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <img src="{{asset('logo3.jpg')}}" width="500" alt="">
+                            
+                            <img src="{{asset('logo3.jpg')}}" width="470" alt="">
+
                         </a>
 
                     </div>
