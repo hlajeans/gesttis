@@ -12,8 +12,8 @@
                     <a href="/home" class="align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                         <img src="{{asset('empresa.png')}}" width="150" alt="">
                     </a>
-                </div>
-                <h2 class="text-center"> Registrar Usuario</h2>
+                    </div>
+                <h2> Registrar Usuario</h2>
                 <form class="mt-4" method="POST" action="{{url('register')}}">
 
                     @csrf
@@ -80,14 +80,8 @@
                             </label>
                         </div>
                     </div>
-
-                </form>
-
-            </div>
-            <div class="text-center">
-                <div style="margin: auto;width: 350px;padding: 20px 20px;">
                     <button type="submit" class="btn btn-success form-control">Registrar</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
