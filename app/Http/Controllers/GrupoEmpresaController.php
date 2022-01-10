@@ -128,8 +128,8 @@ class GrupoEmpresaController extends Controller
     {
         $campos = [
             
-            'Nombre' => 'required|string|max:100'/**|unique:grupo_empresas,Nombre,{this->grupo_empresa->id}'**/,
-            'NombreCorto' => 'required|string|max:100'/**|unique:grupo_empresas,NombreCorto,{this->grupo_empresa->id}'**/,
+            'Nombre' => 'required|string|max:100|unique:grupo_empresas,Nombre,'.$id,
+            'NombreCorto' => 'required|string|max:100|unique:grupo_empresas,NombreCorto,'.$id,
             'TipoSociedad' => 'required|string|max:100',
             'Correo' => 'required|email',
             'Telefono' => 'required|string|max:100',
@@ -142,9 +142,9 @@ class GrupoEmpresaController extends Controller
         ];
 
         $mensaje = [
-            'required' => 'El :attribute es requerido'
-            //'Nombre.unique' => 'El nombre ingresado ya se encuentra registrado',
-            //'NombreCorto.unique' => 'El nombre corto ingresado ya se encuentra registrado'
+            'required' => 'El :attribute es requerido',
+            'Nombre.unique' => 'El nombre ingresado ya se encuentra registrado',
+            'NombreCorto.unique' => 'El nombre corto ingresado ya se encuentra registrado'
         ];
         if($request->hasFile('Logo')){
             $campos = ['Logo' => 'required|mimes:jpeg,png,jpg'];
@@ -164,7 +164,6 @@ class GrupoEmpresaController extends Controller
         }
         GrupoEmpresa::where('id' ,'=', $id ) -> update($datosGrupoEmpresa);
         $gp = GrupoEmpresa::findOrFail($id);
-        //return view('grupoempresa.edit',compact('gp'));
         return redirect('grupoempresa')->with('mensaje','Grupoempresa editada!');
     }   
 
