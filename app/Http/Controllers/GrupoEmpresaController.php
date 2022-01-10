@@ -32,7 +32,7 @@ class GrupoEmpresaController extends Controller
         ->where('Nombre','LIKE','%'.$texto.'%')
         ->orWhere('NombreCorto','LIKE','%'.$texto.'%')
         ->orderBy('Nombre','asc')
-        ->paginate(10);
+        ->paginate(100);
         return view('grupoempresa.index',compact('grupoempresas','texto'));
     }
 
