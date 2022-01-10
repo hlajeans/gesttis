@@ -51,12 +51,7 @@ class SobreController extends Controller
     {
         $todosSobre = Sobre::all();
         $ultimoSobre = $todosSobre->last();
-        /* if(!$ultimoSobre){
-            $ultimoSobre['sobreA']='';
-            $ultimoSobre['sobreB']='';
-            $ultimoSobre['fecha']='';
-        } */
-        //dd($ultimoSobre);
+        
         return view('sobres.vista', compact('ultimoSobre'));
 
     }
