@@ -16,7 +16,7 @@ class CreateSobresTable extends Migration
         Schema::create('sobres', function (Blueprint $table) {
             $table->id();
             $table->string('sobreA')->nullable();
-            $table->longText('sobreB')->nullable();
+            $table->string('sobreB', 500)->nullable();
             $table->string('fecha')->nullable();
             $table->timestamps();
         });
