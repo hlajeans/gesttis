@@ -31,8 +31,8 @@ class CreateGrupoEmpresasTable extends Migration
             $table->string('Representante');
             $table->string('Socio1');
             $table->string('Socio2');
-            $table->string('Socio3');
-            $table->string('Socio4');
+            $table->string('Socio3')->nullable();
+            $table->string('Socio4')->nullable();
             $table->timestamps();
         });
     }
