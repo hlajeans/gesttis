@@ -29,6 +29,9 @@ Route::get('/vista', function () {
     return view('vista');
 });
 
+Route::get('storage-link',function(){
+    Artisan::call('storage:link');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', function () {
