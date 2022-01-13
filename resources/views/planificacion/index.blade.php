@@ -65,13 +65,13 @@
 
 
         <td>
-          <a href="{{@$item->getPathFileAttribute()}} " class="btn btn-danger" target="_blank" title="Vizualizar PDF">Ver</a>
+          <a href="http://tectis.tis.cs.umss.edu.bo/planificacion/file/{{@$item->documento}}" class="btn btn-danger" target="_blank" title="Vizualizar PDF">Ver</a>
 
         </td>
 
 
         <td>
-          <a href="{{@$item->getPathFileAttribute2()}} " class="btn btn-danger" target="_blank" title="Vizualizar PDF">Ver</a>
+          <a href="http://tectis.tis.cs.umss.edu.bo/planificacion/file/{{@$item->documento2}}" class="btn btn-danger" target="_blank" title="Vizualizar PDF">Ver</a>
 
         </td>
         <td>

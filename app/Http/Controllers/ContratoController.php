@@ -36,21 +36,28 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
+
         $input=$request->except('_token');
         if($request->hasfile('file')){
             
-            $archivo=$request->file('file');
-            $input ['documento']=time().'_'.$archivo->getClientOriginalName();
-            
-            $archivo->move(public_path('Archivos'),$input['documento']);
+            // $archivo=$request->file('file');
+            // $input ['documento']=time().'_'.$archivo->getClientOriginalName();
+            $path= $request->file('file')->store('uploads','public');
+            // $archivo->move(public_path('Archivos'),$input['documento']);
+            $input['documento'] =substr($path, 8);
         }
         
         Contrato::create($input);
-
         $contratos=Contrato::all();
-        
         // return view('contrato.index' ,compact('contratos'));
         return redirect('contrato');
+    }
+
+    public function showfile( $namefile){
+        $path=storage_path().'/app/public/uploads'."/".$namefile;
+        // dd($path);
+        return response()->file($path);
+
     }
 
     /**

@@ -70,7 +70,7 @@
                   @endif
                 </td>
                 <td>
-                   <a href="{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
+                   <a href="http://tectis.tis.cs.umss.edu.bo/pliegos/file/{{@$item->documento}} " class="btn btn-danger" target="_blank">Ver Documento</a>
                 </td>
               </tr>
               @endforeach

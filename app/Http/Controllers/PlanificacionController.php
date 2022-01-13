@@ -41,9 +41,11 @@ class PlanificacionController extends Controller
     {
         $input=$request->except('_token');
 
-        $files = $request->file();
+        $files = $request->file;
         $flag = 0;
+        dd($files);
         foreach ($files as $file) {
+            dd($flag);
             $aux = "";
             $aux =time().'_'.$file->getClientOriginalName();
             $file->move(public_path('Archivos'),$aux);
@@ -56,8 +58,18 @@ class PlanificacionController extends Controller
             if($flag != 0){
                 $name2 = $aux;
             }
+            // if($flag==0){
+            // $input['documento']= $file->store('uploads','public');
 
-            
+            // $input['documento'] =substr($path, 8);
+            // dd($path);
+           
+            // }
+            // if($flag != 0){
+            // $input['documento2']=  $file->store('uploads','public');
+
+            // $input['documento2'] =substr($path, 8);
+            // }
         } 
     
         $input["documento"] = $name1;
@@ -69,6 +81,13 @@ class PlanificacionController extends Controller
         //return view('planificacion.index',compact('planificaciones'));
         return redirect('planificacion');
     }
+
+    // public function showfile( $namefile){
+    //     $path=storage_path().'/app/public/uploads'."/".$namefile;
+    //     // dd($path);
+    //     return response()->file($path);
+
+    // }
 
     /**
      * Display the specified resource.

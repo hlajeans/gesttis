@@ -42,16 +42,25 @@ class PliegoController extends Controller
         $input=$request->except('_token');
             if($request->hasfile('file')){
                 
-                $archivo=$request->file('file');
-                $input ['documento']=time().'_'.$archivo->getClientOriginalName();
-                
-                $archivo->move(public_path('Archivos'),$input['documento']);
+                // $archivo=$request->file('file');
+                // $input ['documento']=time().'_'.$archivo->getClientOriginalName();
+                $path= $request->file('file')->store('uploads','public');
+                // $archivo->move(public_path('Archivos'),$input['documento']);
+                $input['documento'] =substr($path, 8);
             }  
             
             Pliego::create($input);
 
             $pliegos=Pliego::all();
-        return view('pliegos.index',compact('pliegos'));
+        // return view('pliegos.index',compact('pliegos'));
+        return redirect('pliegos');
+    }
+
+    
+    public function showfile( $namefile){
+        $path=storage_path().'/app/public/uploads'."/".$namefile;
+        // dd($path);
+        return response()->file($path);
 
     }
 

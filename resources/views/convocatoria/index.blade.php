@@ -71,7 +71,8 @@
 
               </td>
               <td>
-                <a href="{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
+              <!-- download  aumentar -->
+                <a href="http://tectis.tis.cs.umss.edu.bo/convocatoria/file/{{@$item->documento}} " class="btn btn-danger" target="_blank">Ver Documento</a>
               </td>
             </tr>
             @endforeach

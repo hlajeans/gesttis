@@ -68,7 +68,7 @@
 
                             </td>
                             <td>
-                                <a href="{{@$row->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
+                                <a href="http://tectis.tis.cs.umss.edu.bo/sprints/file/{{@$row->documento}}" class="btn btn-danger" target="_blank">Ver Documento</a>
                             </td>
                         </tr>
                         @endforeach

@@ -101,7 +101,11 @@ class ReporteController extends Controller
             'planificacion_id'=>$request->planificacion_id]);
 //'http://127.0.0.1:8000/archivos/' eso es de prueba en mi maquina
 //cambiar la ruta del servidor
-            $documento = 'http://127.0.0.1:8000/archivos/'.$reportes->documento;
+            // $url = asset('storage').'/'.@$reportes->documento;
+
+            // $documento = 'http://127.0.0.1:8000/archivos/'.$reportes->documento;
+            //se aumento la linea 108
+            $documento = asset('storage').'/'.@$reportes->documento;
             $to_name = 'gustavo El MOLE';
             $to_email = 'gustavoalvarad65@gmail.com';
             $from_email = $request->correo;

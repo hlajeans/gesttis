@@ -22,7 +22,7 @@ class SprintsController extends Controller
 
 
     public function show($id){
-        dd ('hola');
+        // dd ('hola');
     }
 
     public function store(Request $request){
@@ -35,15 +35,24 @@ class SprintsController extends Controller
         $input=$request->except('_token');
         if($request->hasfile('file')){
             
-            $archivo=$request->file('file');
-            $input ['documento']=time().'_'.$archivo->getClientOriginalName();
-            
-            $archivo->move(public_path('Archivos'),$input['documento']);
+            // $archivo=$request->file('file');
+            // $input ['documento']=time().'_'.$archivo->getClientOriginalName();
+            $path= $request->file('file')->store('uploads','public');
+            // $archivo->move(public_path('Archivos'),$input['documento']);
+            $input['documento'] =substr($path, 8);
         }
         
         Sprint::create($input);
         $sprints=Sprint::all();
-        return view('sprints.index',compact('sprints'));
+        // return view('sprints.index',compact('sprints'));
+        return redirect('sprints');
+    }
+
+    public function showfile( $namefile){
+        $path=storage_path().'/app/public/uploads'."/".$namefile;
+        // dd($path);
+        return response()->file($path);
+
     }
 
     public function edit ($id){
