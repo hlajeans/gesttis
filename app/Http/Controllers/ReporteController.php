@@ -86,27 +86,15 @@ class ReporteController extends Controller
 
         $input=$request->except('_token');
             if($request->hasfile('file')){
-                
-                $archivo=$request->file('file');
-                $input ['documento']=time().'_'.$archivo->getClientOriginalName();
-                
-                $archivo->move(public_path('Archivos'),$input['documento']);
-
-
-
-            }  
-            
+                $path= $request->file('file')->store('archivo','public');
+                $input['documento'] =substr($path, 8);
+            }       
             $reportes = Reporte::create(['documento'=>$input['documento'],
             'observacion'=>'ninguna',
             'planificacion_id'=>$request->planificacion_id]);
-//'http://127.0.0.1:8000/archivos/' eso es de prueba en mi maquina
-//cambiar la ruta del servidor
-            // $url = asset('storage').'/'.@$reportes->documento;
-
-            // $documento = 'http://127.0.0.1:8000/archivos/'.$reportes->documento;
-            //se aumento la linea 108
-            $documento = asset('storage').'/'.@$reportes->documento;
-            $to_name = 'gustavo El MOLE';
+            $documento=asset('storage').'/app/public/archivo'."/".@$reportes->documento;
+            // $documento = asset('storage').'/'.@$reportes->documento;
+            $to_name = 'Gerente General: Gustavo Alvarado';
             $to_email = 'gustavoalvarad65@gmail.com';
             $from_email = $request->correo;
             $data = array('observacion'=> 'Aceptado los documentos', 'body' => 'Se envio el contrato','documento'=> $documento);
@@ -119,7 +107,11 @@ class ReporteController extends Controller
         return redirect('planificacion');
     }
 
-
+    public function showfile( $namefile){
+        $path=storage_path().'/app/public/archivo'."/".$namefile;
+        // dd($path);
+        return response()->file($path);
+    }
 
     public function rechazar(Request $request ){
         
@@ -128,8 +120,8 @@ class ReporteController extends Controller
             
             'planificacion_id'=>$request->planificacion_id]);
             
-            $to_name = 'gustavo El MOLE';
-            $to_email = 'gustavoalvarad65@gmail.com';
+            $to_name = 'B.TEC_TIS';
+            $to_email = 'Gerente General: Gustavo Alvarado';
             $from_email = $request->correo;
             $data = array('observacion'=> $reportes->observacion, 'body' => 'Tu documento fue revisado','documento'=>'');
             Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email,$from_email) {
@@ -141,3 +133,15 @@ class ReporteController extends Controller
         return redirect('planificacion');
     }
 }
+
+
+
+
+
+
+            //'http://127.0.0.1:8000/archivos/' eso es de prueba en mi maquina
+            //cambiar la ruta del servidor
+            // $url = asset('storage').'/'.@$reportes->documento;
+
+            // $documento = 'http://127.0.0.1:8000/archivos/'.$reportes->documento;
+            //se aumento la linea 108

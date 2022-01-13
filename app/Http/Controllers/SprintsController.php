@@ -48,8 +48,9 @@ class SprintsController extends Controller
             
             // $archivo=$request->file('file');
             // $input ['documento']=time().'_'.$archivo->getClientOriginalName();
-            $path= $request->file('file')->store('uploads','public');
             // $archivo->move(public_path('Archivos'),$input['documento']);
+            $path= $request->file('file')->store('uploads','public');
+            
             $input['documento'] =substr($path, 8);
         }
         
@@ -63,7 +64,6 @@ class SprintsController extends Controller
         $path=storage_path().'/app/public/uploads'."/".$namefile;
         // dd($path);
         return response()->file($path);
-
     }
 
     public function edit ($id){

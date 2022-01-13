@@ -105,12 +105,11 @@ Route::get('/', function () {
 
 //     return 'the [public/storage] directory has benn linked';
 // });
-
-
-/*
+Route::get('/storage/app/public/archivo/{namefile}', [App\Http\Controllers\ReporteController::class, 'showfile'])->name('showfile');
+     
 Route::post('aceptar', [App\Http\Controllers\ReporteController::class, 'aceptar']);
 Route::post('rechazar', [App\Http\Controllers\ReporteController::class, 'rechazar']);
-
+/*
 
 Route::get('/register', [App\Http\Controllers\RegisterController::class, 'create'])->name('register.index');
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');
