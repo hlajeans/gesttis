@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GrupoEmpresaController;
 use App\Http\Controllers\PliegoController;
@@ -11,7 +10,7 @@ use App\Http\Controllers\FaseController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ContratoController;
 use Illuminate\Support\Facades\Auth;
-// use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Artisan;
 
 
 /*
