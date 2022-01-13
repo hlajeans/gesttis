@@ -42,24 +42,18 @@ class ConvocatoriaController extends Controller
         $input=$request->except('_token');
         if($request->hasfile('file')){
             
-            // $archivo=$request->file('file');
-            // $input ['documento']=time().'_'.$archivo->getClientOriginalName();
             $path= $request->file('file')->store('uploads','public');
             $input['documento'] =substr($path, 8);
         }
         
         Convocatoria::create($input);
-
         $convocatorias=Convocatoria::all();
-        // return view('convocatoria.index',compact('convocatorias'));
         return redirect('convocatoria');
     }
 
     public function showfile( $namefile){
         $path=storage_path().'/app/public/uploads'."/".$namefile;
-        // dd($path);
         return response()->file($path);
-
     }
 
 

@@ -58,13 +58,13 @@
 
                     <div class="mb-3">
                         <label for="inputPassword4" class="form-label">Subir PDF "Sobre A"</label>
-                        <input type="file" class="form-control" name="file" aria-label="file example" required>
+                        <input type="file" class="form-control" name="file[]" aria-label="file example" required>
                         <div class="invalid-feedback">Subir PDF "Sobre A"</div>
                     </div>
 
                     <div class="mb-3">
                         <label for="inputPassword4" class="form-label">Subir PDF "Sobre B"</label>
-                        <input type="file" class="form-control" name="file2" aria-label="file example" required>
+                        <input type="file" class="form-control" name="file[]" aria-label="file example" required>
                         <div class="invalid-feedback">Subir PDF "Sobre B"</div>
                     </div>
 

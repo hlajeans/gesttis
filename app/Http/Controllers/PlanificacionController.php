@@ -40,54 +40,37 @@ class PlanificacionController extends Controller
     public function store(Request $request)
     {
         $input=$request->except('_token');
-
         $files = $request->file;
         $flag = 0;
-        dd($files);
         foreach ($files as $file) {
-            dd($flag);
-            $aux = "";
-            $aux =time().'_'.$file->getClientOriginalName();
-            $file->move(public_path('Archivos'),$aux);
-
             if($flag==0){
-                $name1 = $aux;
-                $aux="";
-                $flag++;
+            $path= $file->store('uploads','public');
+            $input['documento'] =substr($path, 8);
             }
-            if($flag != 0){
-                $name2 = $aux;
+            else if($flag != 0){
+            
+            $path2=  $file->store('uploads','public');
+            $input['documento2'] =substr($path2, 8);
             }
-            // if($flag==0){
-            // $input['documento']= $file->store('uploads','public');
-
-            // $input['documento'] =substr($path, 8);
-            // dd($path);
-           
-            // }
-            // if($flag != 0){
-            // $input['documento2']=  $file->store('uploads','public');
-
-            // $input['documento2'] =substr($path, 8);
-            // }
+            $flag++;
         } 
-    
-        $input["documento"] = $name1;
-        $input["documento2"] = $name2;
+        unset($input['file']);
+        $plani = Planificacion::create($input);
         
-        Planificacion::create($input);
 
-        $planificaciones=Planificacion::all();
-        //return view('planificacion.index',compact('planificaciones'));
-        return redirect('planificacion');
+        if($plani){
+            return redirect('planificacion');
+        }else{
+            return redirect()->back();
+        }
     }
 
-    // public function showfile( $namefile){
-    //     $path=storage_path().'/app/public/uploads'."/".$namefile;
-    //     // dd($path);
-    //     return response()->file($path);
+    public function showfile( $namefile){
+        $path=storage_path().'/app/public/uploads'."/".$namefile;
+        // dd($path);
+        return response()->file($path);
 
-    // }
+    }
 
     /**
      * Display the specified resource.
@@ -109,6 +92,7 @@ class PlanificacionController extends Controller
     public function edit($id)
     {
         $planificacion=Planificacion::find($id);
+
         // dd($planificacion);
         return view('planificacion.edit',compact('planificacion'));
 
@@ -123,8 +107,24 @@ class PlanificacionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $input=$request->all();
+        $files = $request->file;
+        $flag = 0;
+        foreach ($files as $file) {
+            if($flag==0){
+            $path= $file->store('uploads','public');
+            $input['documento'] =substr($path, 8);
+            }
+            else if($flag != 0){
+            
+            $path2=  $file->store('uploads','public');
+            $input['documento2'] =substr($path2, 8);
+            }
+            $flag++;
+        } 
+        unset($input['file']);
         $planificacion=Planificacion::find($id);
-        $planificacion->update($request->all());
+        $planificacion->update($input);
         return redirect()->route('planificacion.index')->with('success','planificacion actualizada');
     }
 
