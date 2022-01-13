@@ -94,7 +94,7 @@ class ReporteController extends Controller
             'planificacion_id'=>$request->planificacion_id]);
             $documento=asset('storage').'/app/public/archivo'."/".@$reportes->documento;
             // $documento = asset('storage').'/'.@$reportes->documento;
-            $to_name = 'Gerente General: Gustavo Alvarado';
+            $to_name = 'Gustavo Alvarado';
             $to_email = 'gustavoalvarad65@gmail.com';
             $from_email = $request->correo;
             $data = array('observacion'=> 'Aceptado los documentos', 'body' => 'Se envio el contrato','documento'=> $documento);
@@ -121,7 +121,7 @@ class ReporteController extends Controller
             'planificacion_id'=>$request->planificacion_id]);
             
             $to_name = 'B.TEC_TIS';
-            $to_email = 'Gerente General: Gustavo Alvarado';
+            $to_email = 'gustavoalvarad65@gmail.com';
             $from_email = $request->correo;
             $data = array('observacion'=> $reportes->observacion, 'body' => 'Tu documento fue revisado','documento'=>'');
             Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email,$from_email) {
