@@ -39,6 +39,16 @@ class PlanificacionController extends Controller
      */
     public function store(Request $request)
     {
+
+        $campos = ['representante'=> 'required ',
+        'nombre'=> 'required ',
+        'correo'=> 'required '
+        ]; $mensaje = ['representante.required' => 'El campo, Representante-Legal, es obligatorio',
+        'nombre.required' => 'El campo, Nombre-Grupo-Empresa, es obligatorio',
+        'correo.required' => 'El campo, Correo, es obligatorio'
+        ];
+        $this->validate($request,$campos,$mensaje);
+
         $input=$request->except('_token');
         $files = $request->file;
         $flag = 0;

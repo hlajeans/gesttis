@@ -14,6 +14,15 @@
 
 @include('header')
 
+@if(count($errors)>0)
+<div class="alert alert-danger" role="alert">
+<ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+</ul>
+</div>
+@endif
 
 <body>
     
@@ -54,6 +63,12 @@
                             <button class="btn btn-success" type="submit">Registrar</button>
                             <a class="btn btn-primary" href="/home"">Cancelar</a>
                         </div>
+                        
+                        @if(Auth::user()->rol==1 | Auth::user()->rol==4)
+                        <div class="d-grid gap-3 col-5 mx-auto mt-4">
+                            <a class="btn btn-primary" href="{{url('contrato')}}">Ver Contratos</a>
+                        </div>
+                        @endif
                     </div>
                 </form>
                 <!-- @endif -->

@@ -4,6 +4,16 @@
 
 @section('content')
 
+@if(count($errors)>0)
+<div class="alert alert-danger" role="alert">
+<ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+</ul>
+</div>
+@endif
+
 @if(Auth::user()->rol==1 | Auth::user()->rol==2)
 <form action="{{route('pagos.store')}}" method="POST" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg">
     @csrf

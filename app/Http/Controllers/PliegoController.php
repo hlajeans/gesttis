@@ -37,7 +37,16 @@ class PliegoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = 
+            ['titulo'=> 'required ',
+            'sismat'=> 'required',
+            'semestre'=> 'required '];
+            $mensaje = ['titulo.required' => 'El campo Titulo es obligatorio',
+            'sismat.required' => 'El campo Codigo-Pliego es obligatorio',
+            'semestre.required' => 'El campo Semestre es obligatorio'
+            ];
+    
+            $this->validate($request,$campos,$mensaje);
 
         $input=$request->except('_token');
             if($request->hasfile('file')){

@@ -4,6 +4,17 @@
 
 @section('content')
 @include('header')
+
+@if(count($errors)>0)
+<div class="alert alert-danger" role="alert">
+<ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+</ul>
+</div>
+@endif
+
 <form action="{{route('sprints.store')}}" method="POST" enctype="multipart/form-data" class="bg-white w-1/3 p-4 border-white-100 shadow-x1 rounded-lg ">
     @csrf
     <h2 class="text-center p-2">NUEVO PLANIFICACION DE SPRINTS</h2>

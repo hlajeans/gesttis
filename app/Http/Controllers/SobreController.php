@@ -34,6 +34,16 @@ class SobreController extends Controller
      */
     public function store(Request $request)
     {
+        $campos = ['sobreA'=> 'required ',
+        'sobreB'=> 'required ',
+        'fecha'=> 'required '
+        ]; 
+        $mensaje = ['sobreA.required' => 'El campo, SOBRE "A", es obligatorio',
+        'sobreB.required' => 'El campo, SOBRE "B", es obligatorio',
+        'fecha.required' => 'El campo, FECHAS DE PRESENTACION, es obligatorio'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
         $input=$request->except('_token');
 
         Sobre::create($input);

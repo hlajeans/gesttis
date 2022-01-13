@@ -26,6 +26,17 @@ class SprintsController extends Controller
     }
 
     public function store(Request $request){
+        $campos = ['nombreGrupo'=> 'required ',
+        'numeroIteracion'=> 'required',
+        'inicioIteracion'=> 'required ',
+        'finIteracion'=> 'required',
+        ]; 
+        $mensaje = ['nombreGrupo.required' => 'El campo,Nombre Grupo Empresa, es obligatorio',
+        'numeroIteracion.required' => 'El campo, Numero de Sprint, es obligatorio',
+        'inicioIteracion.required' => 'El campo, Inicio, es obligatorio',
+        'finIteracion.required' => 'El campo, Fin, es obligatorio',
+        ];
+            $this->validate($request,$campos,$mensaje);
         // $sprint =new Sprint();
         // $sprint->nombreGrupo = $request->nombreGrupo;
         // $sprint->numeroIteracion = $request->numeroIteracion;

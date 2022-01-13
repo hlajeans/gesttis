@@ -70,7 +70,7 @@
   </div>
   @endif
 
-  @if(Auth::user()->rol==1 | Auth::user()->rol==2)
+  @if( Auth::user()->rol==2)
 <div class=" container">
       <div class="col-12">
         <div class="row">

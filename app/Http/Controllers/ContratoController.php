@@ -37,6 +37,15 @@ class ContratoController extends Controller
     public function store(Request $request)
     {
 
+        $campos = 
+            ['nombre'=> 'required ',
+            'representante'=> 'required'
+	        ];
+            $mensaje = ['nombre.required' => 'El campo,Nombre Grupo Empresa, es obligatorio',
+            'representante.required' => 'El campo, Representante legal, es obligatorio'
+            ];
+        $this->validate($request,$campos,$mensaje);
+
         $input=$request->except('_token');
         if($request->hasfile('file')){
             

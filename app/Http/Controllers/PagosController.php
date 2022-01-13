@@ -24,6 +24,20 @@ class PagosController extends Controller
         dd ('hola');
     }
     public function store(Request $request){
+
+        $campos = 
+        ['nombreGrupo'=> 'required ',
+        'numeroIteracion'=> 'required',
+        'totalPagar'=> 'required ',
+        'porcentajeIteracion'=> 'required',
+        'montoPagar'=> 'required'];
+        $mensaje = ['nombreGrupo.required' => 'El campo, Nombre Grupo Empresa, es obligatorio',
+        'numeroIteracion.required' => 'El campo, Numero de Sprint, es obligatorio',
+        'totalPagar.required' => 'El campo, Total a pagar por el proyecto, es obligatorio',
+        'porcentajeIteracion.required' => 'El campo, Porcentaje a pagar en sprint, es obligatorio',
+        'montoPagar.required' => 'El campo, Monto a pagar en Sprint, es obligatorio'  ];
+        $this->validate($request,$campos,$mensaje);
+
         $pago =new Pago();
         $pago->nombreGrupo = $request->nombreGrupo;
         $pago->numeroIteracion = $request->numeroIteracion;

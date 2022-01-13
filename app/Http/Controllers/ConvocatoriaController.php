@@ -39,6 +39,16 @@ class ConvocatoriaController extends Controller
      */
     public function store(Request $request)
     {
+        $campos = 
+            ['titulo'=> 'required ',
+            'fecha'=> 'required',
+            'codigo'=> 'required'];
+            $mensaje = ['titulo.required' => 'Campo Titulo es obligatorio',
+            'fecha.required' => 'Campo Fecha es obligatorio',
+            'codigo.required' => 'Campo Codigo es obligatorio'
+            ];
+    
+            $this->validate($request,$campos,$mensaje);
         $input=$request->except('_token');
         if($request->hasfile('file')){
             

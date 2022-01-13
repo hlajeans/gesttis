@@ -35,10 +35,14 @@
                 <li><a href="{{url('/grupoempresa')}}" class="nav-link px-2 text-blue">GRUPO-EMPRESA</a></li>
                
 
-                @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==4)
-                <li><a href="{{url('contrato')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
+                @if(Auth::user()->rol==1 | Auth::user()->rol==2)
+                <li><a href="{{url('contrato/create')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
                 @endif
                
+                @if(Auth::user()->rol==4)
+                <li><a href="{{url('contrato')}}" class="nav-link px-2 text-blue">CONTRATO</a></li>
+                @endif
+
                 @if(Auth::user()->rol==1 | Auth::user()->rol==2 | Auth::user()->rol==4) 
                 <!-- Example single danger button -->
                 <div class="btn-group">
