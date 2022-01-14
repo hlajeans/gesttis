@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CardController extends Controller
 {
@@ -120,9 +121,20 @@ class CardController extends Controller
             //'Nombre.unique' => 'El nombre ingresado ya se encuentra registrado',
             //'NombreCorto.unique' => 'El nombre corto ingresado ya se encuentra registrado'
         ];
+        if($request->hasFile('Archivo')){
+            $campos = ['Archivo' => 'required'];
+        
+        $mensaje = ['Archivo.required' => 'El archivo es requerido'];
+        }
         $this->validate($request,$campos,$mensaje);
 
         $datosCard= request()->except(['_token','_method']);
+        if($request->hasFile('Archivo')){
+            $tarj = Card::findOrFail($id);
+            Storage::delete('public/'.$tarj->Archivo);
+            $datosCard['Archivo']=$request->file('Archivo')->store('uploads','public');
+
+        }
 
         Card::where('id' ,'=', $id ) -> update($datosCard);
         $card = Card::findOrFail($id);
