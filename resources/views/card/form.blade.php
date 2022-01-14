@@ -48,10 +48,11 @@
 <div class="col-4">
     <label for="Modo">Estado</label>
     <select class="form-select" name="Modo" id="Modo">
+        @if(Auth::user()->rol==2 | Auth::user()->rol==3)
         <option>Por Realizar</option>
         <option>En Curso</option>
         <option>Terminado</option>
-        @if(Auth::user()->rol==1 | Auth::user()->rol==4)
+        @else
         <option>Observacion</option>
         @endif
     </select>

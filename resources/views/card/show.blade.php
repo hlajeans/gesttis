@@ -17,14 +17,14 @@
   
     <div class="row">
 
-      <div class="col-md-4">
+      <div class="col-md-10">
           <br/>
         <h3 class="my-3">Detalles: </h3>
         <ul>
           <li><strong></strong>{{$card->Descripcion}}</li>
           <br/>
           <h3 class="my-3">Link: </h3>
-          <li>Se adjunto el siguiente link {{$card->Link}}</li>
+          <li>Se adjunto el siguiente link: {{$card->Link}}</li>
           <br/>
             <!--comment>
             Funcion para descargar los archivos adjuntos a una tarjeta
