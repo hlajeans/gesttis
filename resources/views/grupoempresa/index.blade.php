@@ -31,8 +31,12 @@
 <br/>
 <br/>
 <div class="container">
+    @if(Auth::user()->rol==2 | Auth::user()->rol==3| Auth::user()->rol==1)
 <a href="{{route('card.index')}}" class="btn btn-dark">Mi Grupo Empresa</a>
+@endif
+@if(Auth::user()->rol==1 | Auth::user()->rol==2| Auth::user()->rol==3)
 <a href="{{url('/grupoempresa/create')}}" class="btn btn-dark">Registrar Grupo Empresa</a>
+@endif
 <br/>
 <br/>
     <div class="col-xl-12"> 
@@ -92,6 +96,7 @@
               <!--comment>
             Añadimos las funciones para Visualizar, Editar y Eliminar Grupo Empresa
             </comment-->
+            @if(Auth::user()->rol==1 | Auth::user()->rol==4)
         <a href="{{url('/grupoempresa/'.$gp->id.'/edit')}}" class="btn btn-secondary">
         Editar
         </a>
@@ -100,6 +105,7 @@
         {{method_field('DELETE')}}
         <input class="btn btn-dark" type="submit" onClick="return confirm('¿Estas seguro que deseas borrar?')" value="Borrar">
         </form>
+        @endif
         <a href="{{url('/grupoempresa/'.$gp->id)}}" class="btn btn-secondary">Ver Detalles</a>
         </td>
         </tr>

@@ -51,7 +51,9 @@
         <option>Por Realizar</option>
         <option>En Curso</option>
         <option>Terminado</option>
+        @if(Auth::user()->rol==1 | Auth::user()->rol==4)
         <option>Observacion</option>
+        @endif
     </select>
 </div>
 
